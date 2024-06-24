@@ -36,12 +36,13 @@ do
         }
         
     } while (Changes!=0);   
-    printf("Steps made: %i\n",StepCounter);
+    printf("Steps taken: %i\n",StepCounter);
     printf("Sorted list: ");
     
     for (int i = 0; i < n; i++)
     {
-        printf("%i ",Numbers[i+1]);
+        printf("%i ",Numbers[i]);
     }   
-    printf("\n");
+    printf("\nPress any key and Enter to exit ");
+    scanf("%i",Changes);
 }
