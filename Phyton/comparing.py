@@ -1,5 +1,0 @@
-a,b,c = map(int, input().split())
-t = (a == b)+(b == c)+(a == c)
-if t==3: print("Все одинаковые")
-if t==1: print("Два одинаковых")
-if t==0: print("Нет одинаковых")
