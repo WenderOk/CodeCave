@@ -30,23 +30,26 @@ language = input("Укажите язык пароля (ru или en): ")
 order = [int(n) for n in input("Введите порядок элементов: ").split()]
 N = int(input('Введите количество паролей, которое необходимо сгенерировать: '))
 
-for i in range(N):
-    if language == 'ru':
-        verb = random.choice(verbsRU)
-        noun = random.choice(nounsRU)
-        adjective = random.choice(adjectivesRU)
-    elif language == 'en':
-        verb = random.choice(verbsEN)
-        noun = random.choice(nounsEN)
-        adjective = random.choice(adjectivesEN)
-    number = str(random.randrange(2, 100))
-    symbol = random.choice(string.punctuation)
-    
-    pswdElem = [number, adjective, noun, verb, symbol]
-    password = ''
-    
-    if order == 'случайный':
-        for _ in range(5): password += random.choice([number, adjective, noun, verb, symbol])
-    else: 
-        for j in range(5): password += pswdElem[order[j]]
-    print(f'{i+1} пароль: {password}')
+def genPswd():
+    for i in range(N):
+        if language == 'ru':
+            verb = random.choice(verbsRU)
+            noun = random.choice(nounsRU)
+            adjective = random.choice(adjectivesRU)
+        elif language == 'en':
+            verb = random.choice(verbsEN)
+            noun = random.choice(nounsEN)
+            adjective = random.choice(adjectivesEN)
+        number = str(random.randrange(2, 100))
+        symbol = random.choice(string.punctuation)
+        
+        pswdElem = [number, adjective, noun, verb, symbol]
+        password = ''
+        
+        if order == 'случайный':
+            for _ in range(5): password += random.choice([number, adjective, noun, verb, symbol])
+        else: 
+            for j in range(5): password += pswdElem[order[j]]
+        print(f'{i+1} пароль: {password}')
+genPswd()
+input("Нажмите ENTER чтобы продолжить:")
