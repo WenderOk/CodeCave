@@ -1,4 +1,4 @@
 | Одногруппник  | Ссылка на Github |
 | ------------- | ------------- |
-| Никита Березовский  | [ссылка](https://github.com/Hikchill) |
-| Артемий Поликарпов  | [ссылка](https://github.com/Wenwu-PA) |
+| Num1  | [ссылка](https://github.com/Hikchill) |
+| Num2 | [ссылка](https://github.com/Wenwu-PA) |
