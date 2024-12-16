@@ -1,0 +1,25 @@
+h1 {
+  background-color: rgb(43, 43, 43);
+  color: #00c28e;
+}
+p {
+  color: #00c28e;
+  background-color: rgb(43, 43, 43);
+  font-family: Molot;
+  font-size: large;
+}
+body {
+  background-color: rgb(43, 43, 43);
+}
+.title {
+  color: #ff0000;
+  font-family: Impact;
+}
+
+@font-face {
+  font-family: "Molot";
+  src: url("Molot.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
