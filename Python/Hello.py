@@ -1,6 +1,7 @@
-A, B = [x for x in input("Введите исходную строку: ")], []
-#if A[-1] == A[0]: B.append(A[0])
+from random import*
+N = int(input())
+c, A = 0, [randint(-100, 100) for _ in range(N)]
+for _ in range(A.count(0)): A.remove(0)
 for i in range(len(A)):
-    if A[i] != A[i+1]: B.append(A[i])
-print(*A, sep="")
-print(*B, sep="")
+    if ((A[i] > 0 and A[i-1] < 0) or (A[i] < 0 and A[i-1] > 0)): c+=1
+print(A, '\n', c, sep='')
