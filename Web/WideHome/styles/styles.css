@@ -136,29 +136,19 @@ body {
 
 .content__button {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 16px 32px;
   gap: 4px;
-  width: 170px;
-  height: 24px;
   background: #0044ff;
   border-radius: 32px;
   transition: 0.15s linear;
-}
-
-.content__button__text {
+  color: #fff;
   text-decoration: none;
-  width: 133px;
-  height: 24px;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  display: flex;
-  align-items: center;
-  color: #ffffff;
 }
 
 .footer {
@@ -175,7 +165,6 @@ body {
 .footer__contacts {
   box-sizing: border-box;
   display: flex;
-  flex-direction: row;
   align-items: flex-end;
   padding: 240px 320px;
   gap: 56px;
@@ -265,7 +254,7 @@ body {
   transition: 0.15s linear;
 }
 
-.footer__contacts__group__contacts__social__link__text {
+.footer__social-link-text {
   text-decoration: none;
   width: 74px;
   height: 24px;

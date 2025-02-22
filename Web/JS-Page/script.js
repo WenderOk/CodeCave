@@ -1,3 +1,8 @@
+let user = {};
+user = { name:"John", 
+    surname:"Smith",};
+user.name = "Pete";
+delete user.name;
 /*
 let age = +prompt("Введите ваш возраст:");
 if (18 <= age) {
@@ -36,8 +41,8 @@ for (let i = 0; i <= a; i++) {
 
 // console.log(PrintNums(GetNumber()));
 
-let user = {
-  name: "Georgy",
-  age: 16,
-  group: "SD",
-};
+// let user = {
+//   name: "Georgy",
+//   age: 16,
+//   group: "SD",
+// };
