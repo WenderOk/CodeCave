@@ -3,9 +3,9 @@ let arr = [654, 684, 32, -15, 4625, 12, -14];
 function MinMaxElements(arr) {
   let minIndex = 0;
   let maxIndex = 0;
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 1; i < arr.length; i++) {
     if (arr[i] < arr[minIndex]) {
-      maxIndex = i;
+      minIndex = i;
     }
     if (arr[i] > arr[maxIndex]) {
       maxIndex = i;
@@ -14,8 +14,9 @@ function MinMaxElements(arr) {
   return [minIndex, maxIndex];
 }
 
-let [indMin, indMax] = MinMaxElements(arr);
-console.log(indMin);
-console.log(arr[indMin]);
-console.log(indMax);
-console.log(arr[indMax]);
+console.log(MinMaxElements(arr))
+// let [indMin, indMax] = MinMaxElements(arr);
+// console.log(indMin);
+// console.log(arr[indMin]);
+// console.log(indMax);
+// console.log(arr[indMax]);

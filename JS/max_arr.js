@@ -11,4 +11,3 @@ function MinMaxElements(arr) {
 }
 
 console.log(MinMaxElements(arr));
-console.log(arr[MinMaxElements(arr)]);
