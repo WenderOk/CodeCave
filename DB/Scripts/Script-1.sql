@@ -1,0 +1,29 @@
+--select artist,trackname,release_date from Songs order by release_date;
+--select artist,trackname,streams from Songs order by artist,streams;
+--select place,tracknamefrom Songs order by place DESC; --ASC сортировка по возрастанию DESC по убыванию (по умолчнаию по возрастанию)
+--select artist, trackname,release_date from Songs order by release_date DESC limit 2;
+--select title from films order by title;
+--select title,duration from films order by release_date desc;
+--select title from Films order by duration, release_date desc;
+--select title, director, duration from Films order by duration;
+--select title from Films order by title desc
+--select title, director, duration from Films order by director, duration desc;
+--select distinct director from Films order by director;
+--select title, director, release_date from Films order by release_date limit 3;
+--select * from Songs where artist = 'The Sounds';
+--select trackname, artist, streams from Songs where streams between 50000 and 100000;
+--select trackname, artist, release_date from Songs where release_date is null;
+--select title from Films2 where release_year<=2004 order by release_year;
+--select title, running_time from Films2 where running_time < 110 order by running_time;
+--select title, director from Films2 where director<>"Brad Bird" order by 2, 1;
+--select title, director, release_year from Films2 where release_year between 2000 and 2011 order by release_year;
+--select running_time,title from Films2 where running_time between 90 and 110 order by running_time;
+--select title as "Movie", director as "Directed by" from Films2 where director != NULL order by director, title;
+--select * from Films2 where id <= 5 AND running_time > 100;
+--select title, director, release_year from Films2 where director="John Lasseter" and release_year < 2000 order by release_year;
+--select title, release_year from Films2 where release_year in (1999, 2009) order by release_year desc;
+--select title, running_time from Films2 where running_time<100 or running_time<110 order by running_time desc;
+--select title, director, running_time from Films2 where director in ("John Lasseter", "Andrew Stanton") and running_time>100  order by 2, 1;
+--select * from Films2 where title in ("WALL-E","Up","Brave","Toy Story") order by release_year;
+select title, director, release_year  from Films2 where release_year not in (2004,2008,2012) order by 2,3 desc;
+
