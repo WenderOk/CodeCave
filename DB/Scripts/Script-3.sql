@@ -1,0 +1,12 @@
+--select * from Films;
+--select distinct director from Films;
+--select title as 'Movie', director as 'Directed by' from Films;
+--select distinct director from films;
+--select * from Films limit 3;
+--select * from Films limit 2 offset 4;
+--select * from Films where id=5
+--select * from Films limit 4, 1;
+--select * from Films limit 1;
+--select * from Films where release_date=2004;
+--select * from Films where id!=1;
+select title from Films where release_date>2007;
