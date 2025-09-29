@@ -1,0 +1,29 @@
+-- DROP TABLE IF EXISTS Films;
+-- CREATE TABLE Films(
+--     id        INT PRIMARY KEY AUTO_INCREMENT,
+--     title     VARCHAR(20),
+--     director  VARCHAR(20),
+--     composer  VARCHAR(20),
+--     rating    DECIMAL(2, 1),
+--     price     DECIMAL(3, 2),
+--     purchases INT
+-- );
+-- 
+-- INSERT INTO Films (title, director, composer, rating, price, purchases)
+-- VALUES ('Venom', 'Ruben Fleischer', 'Ludwig Goransson', 6.9, 4.99, 2143535),
+--        ('Aladdin', 'Guy Ritchie', 'Alan Menken', 7.3, 3.99, 3253263),
+--        ('Encanto', 'Jared Bush', 'Germaine Franco', 7.5, 2.99, 451245),
+--        ('The Witches', 'Robert Zemeckis', 'Alan Silvestri', 5.7, 1.99, 67441),
+--        ('Blade Runner 2049', 'Denis Villeneuve', 'Benjamin Wallfisch', 7.8, 5.99, 2164214),
+--        ('Equilibrium', 'Kurt Wimmer', 'Klaus Badelt', 7.9, 5.99, 54124561),
+--        ('Ready or Not', 'Matthew Bettinelli', 'Brian Tyler', 6.9, 4.99, 541234),
+--        ('Fast X', 'Louis Leterrier', 'Brian Tyler', 6.1, 3.99, 454113),
+--        ('John Wick', 'Chad Stahelski', 'Tyler Bates', 7.0, 4.99, 1247322),
+--        ('Fight Club', 'David Fincher', 'Dust Brothers', 8.7, 5.99, 17641285);
+
+-- select concat_ws('. ', id, title) as movie from films;
+-- select concat_ws('. ', id, title) as movie, concat("€",price) as value from films;
+-- select concat(title,':', director) as movie, concat("€",price) as value from films;
+-- select title, price * purchases as profit from films order by profit desc limit 3;
+-- select title, price * 0.7 as discount_price from films where price * 0.7 < 4 order by discount_price;
+select concat(id,'.',title) as movie, concat('€', price*1.1) as price_in_eur, concat(rating*10,'%') as score from films where rating > 7 order by rating desc;
