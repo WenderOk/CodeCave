@@ -1,0 +1,28 @@
+-- DROP TABLE IF EXISTS Films;
+-- CREATE TABLE Films(
+--     id           INT PRIMARY KEY AUTO_INCREMENT,
+--     title        VARCHAR(40),
+--     director     VARCHAR(40)
+-- );
+-- 
+-- INSERT INTO Films (title, director)
+-- VALUES ('Toy Story 3', 'Lee Unkrich'),
+--        ('Monsters University', 'Dan Scanlon'),
+--        ('Toy Story 2', 'John Lasseter'),
+--        ('WALL-E', 'Andrew Stanton'),
+--        ('Ratatouille', 'Brad Bird'),
+--        ('Up', 'Pete Docter'),
+--        ('Brave', 'Brenda Chapman'),
+--        ('Finding Nemo', 'Andrew Stanton'),
+--        ('Toy Story', 'John Lasseter'),
+--        ('The Incredibles', 'Brad Bird');
+
+-- select  title, director from films order by title;
+-- select  title, director from films where title like 'Toy Story%' order by title;
+-- select distinct director from films where director like 'B%' order by 1;
+-- select distinct director from films where director like '%er' order by 1;
+-- select distinct director from films where director like '% S%n' order by 1;
+-- select distinct director from films where director like '____ %' order by 1;
+-- select title, director from films where title not like cast('%t%' as binary) order by 1;
+-- select title, director from films where title like '% %' order by 1;
+select title, director from films where title not like '% %' order by 1;
