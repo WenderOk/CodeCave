@@ -1,0 +1,29 @@
+-- DROP TABLE IF EXISTS Directors;
+-- CREATE TABLE Directors(
+--     id      INT PRIMARY KEY AUTO_INCREMENT,
+--     name    VARCHAR(40),
+--     surname VARCHAR(40),
+--     country VARCHAR(40),
+--     email VARCHAR(40)
+-- );
+-- 
+-- INSERT INTO Directors (name, surname, country, email)
+-- VALUES ('Christopher', 'Nolan', 'England', 'chris@gmail.com'),
+--        ('Steven', 'Spielberg', 'USA', 'sspil@outlook.com'),
+--        ('Quentin', 'Tarantino', 'USA', 'queen@gmail.com'),
+--        ('Martin', 'Scorsese', 'USA', 'martins@outlook.com'),
+--        ('David', 'Fincher', 'USA', 'dfincher@outlook.com'),
+--        ('Ridley', 'Scott', 'England', 'riddler@gmail.com'),
+--        ('Stanley', 'Kubrick', 'USA', 'bigstan@icloud.com'),
+--        ('Clint', 'Eastwood', 'USA', 'cowboy@yahoo.com'),
+--        ('James', 'Cameron', 'Canada', 'jamesava@yahoo.com'),
+--        ('Tim', 'Burton', 'USA', 'timmy@icloud.com');
+
+-- select concat(name, " ", surname) as director, length(concat(name," ",surname)) as name_length from directors order by name_length, director;
+-- select name, surname from directors where length(name)<=6 order by name;
+-- select name, surname from directors where cast(name as binary) = cast(lower(name) as binary) or cast(surname as binary) = cast(lower(surname) as binary) order by name;
+-- select name, surname, upper(country) as country from directors order by country, name;
+-- select lpad("",length(name),"*") as name, surname from directors order by length(name) desc, 2;
+-- select concat(left(name,1), ". ",surname) as director from directors order by director;
+-- select concat(left(name,1), repeat("*",length(name))) as name1, concat(left(surname,1), repeat("*",length(surname))) as surname1 from directors order by name1,surname1;
+select name, surname, replace("gosuslugi.ru",email,"outlook.com") from directors;

@@ -1,0 +1,21 @@
+-- DROP TABLE IF EXISTS Palindromes;
+-- CREATE TABLE Palindromes(
+--     id      INT PRIMARY KEY AUTO_INCREMENT,
+--     english VARCHAR(40),
+--     russian VARCHAR(40)
+-- );
+-- 
+-- INSERT INTO Palindromes(english, russian)
+-- VALUES ('hut', 'шалаш'),
+--        ('rotor', 'ротор'),
+--        ('tenet', 'принцип'),
+--        ('radar', 'радар'),
+--        ('flood', 'потоп'),
+--        ('level', 'уровень'),
+--        ('madam', 'мадам'),
+--        ('deed', 'поступок'),
+--        ('it', 'оно'),
+--        ('kayak', 'каяк');
+
+-- select english, russian from palindromes where english = reverse(russian) and russian = reverse(english );
+-- select repeat(english, length(english)) as english from palindromes where english = reverse(english) and russian <> reverse(russian);
