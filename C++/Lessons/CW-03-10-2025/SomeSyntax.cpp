@@ -26,12 +26,11 @@ int main()
     // // float dividing
     // std::cout << 5.0 / 2 << "\n"; // 2.5
     
-    int x{};
-    x=100.99;
+    int x;
     std::cout << x << "\n";
 
-    int y = 5'000'000'000;
-    std::cout << y << "\n";
+    // int y = 5'000'000'000;
+    // std::cout << y << "\n";
 
     return 0;
 }
