@@ -1,0 +1,24 @@
+-- DROP TABLE IF EXISTS Movies;
+-- CREATE TABLE Movies(
+--     id          INT PRIMARY KEY AUTO_INCREMENT,
+--     title       VARCHAR(40),
+--     flickmetrix INT,
+--     metacritic  INT,
+--     imdb        INT,
+--     letterboxd  INT,
+--     kinopoisk   INT
+-- );
+-- 
+-- INSERT INTO Movies (title, flickmetrix, metacritic, imdb, letterboxd, kinopoisk)
+-- VALUES ('The Godfather', 95, 100, 92, 92, 87),
+--        ('Parasite', 92, 96, 85, 92, 80),
+--        ('Pulp Fiction', 90, 94, 89, 86, 87),
+--        ('Spirited Away', 90, 96, 86, 90, 85),
+--        ('Alien', 88, 89, 85, 86, 79),
+--        ('The Dark Knight', 88, 84, 90, 89, 85),
+--        ('Spider-Man: Across the Spider-Verse', 87, 86, 87, 90, 85),
+--        ('No Country for Old Men', 87, 92, 82, 86, 72);
+
+-- select format((flickmetrix + metacritic + imdb + letterboxd + kinopoisk - least(flickmetrix, metacritic, imdb, letterboxd, kinopoisk) - greatest(flickmetrix, metacritic, imdb, letterboxd, kinopoisk)) / 3, 2)
+-- as average_rating 
+-- from Movies order by average_rating desc, title;

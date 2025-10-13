@@ -1,0 +1,27 @@
+--DROP TABLE IF EXISTS Staff;
+--CREATE TABLE Staff(
+--    id         INT AUTO_INCREMENT PRIMARY KEY,
+--    name       VARCHAR(20),
+--    surname    VARCHAR(20),
+--    hire_year  YEAR,
+--    hire_day   INT,
+--    hire_date  DATE,
+--    salary     INT
+--);
+--
+--INSERT INTO Staff (name, surname, hire_year, hire_day, hire_date, salary)
+--VALUES ('Larry', 'Page', 1998, 190, '1998-07-09', 100000),
+--       ('Sergey', 'Brin', 2019, 319, '2019-11-15', 110000),
+--       ('Sundar', 'Pichai', 2009, 313, '2009-11-09', 130000),
+--       ('Ruth', 'Porat', 2005, 330, '2005-11-26', 90000),
+--       ('Sundar', 'Nadella', 1995, 8, '1995-01-08', 125000),
+--       ('Jeff', 'Bezos', 2003, 131, '2003-05-11', 85000),
+--       ('Marissa', 'Mayer', 2007, 267, '2007-09-24', 95000),
+--       ('Susan', 'Wojcicki', 1988, 124, '1988-05-03', 120000),
+--       ('Eric', 'Schmidt', 1991, 321, '1991-11-17', 115000),
+--       ('Sheryl', 'Sandberg', 2012, 201, '2012-07-19', 90000);
+
+--select concat(name, " " ,surname) as staffer, MAKEDATE(hire_year, hire_day) as hire_date from Staff;
+--select concat(name, " " ,surname) as staffer, LAST_DAY(hire_date) as first_salary from Staff order by salary desc;
+--select concat(name, " " ,surname) as staffer from Staff where (to_days(last_day(hire_date - hire_date) + 1)) < 15 order by staffer;
+--select concat(name, " " ,surname) as staffer from Staff where (to_days(last_day(hire_date - hire_date) + 1)) < 15 order by staffer;

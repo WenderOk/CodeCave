@@ -1,0 +1,31 @@
+--DROP TABLE IF EXISTS Actors;
+--CREATE TABLE Actors(
+--    id         INT AUTO_INCREMENT PRIMARY KEY,
+--    actor      VARCHAR(50),
+--    birth_date DATETIME
+--);
+--
+--INSERT INTO Actors (actor, birth_date)
+--VALUES ('Johnny Depp', '1963-06-09 19:10:00'),
+--       ('Natalie Portman', '1981-06-09 06:15:00'),
+--       ('Scarlett Johansson', '1984-11-22 18:30:00'),
+--       ('Angelina Jolie', '1975-06-04 05:55:00'),
+--       ('Brad Pitt', '1963-12-18 10:10:00'),
+--       ('Meryl Streep', '1949-06-22 08:05:00'),
+--       ('Leonardo DiCaprio', '1974-11-11 02:47:00'),
+--       ('Tom Hanks', '1956-07-09 15:20:00'),
+--       ('Jennifer Aniston', '1969-02-11 14:25:00'),
+--       ('Denzel Washington', '1954-12-28 01:40:00'),
+--       ('Kristen Stewart', '1990-04-09 02:47:00'),
+--       ('Chris Hemsworth', '1983-08-11 08:05:00'),
+--       ('Zac Efron', '1974-10-18 02:47:00'),
+--       ('Charlize Theron', '1975-08-07 19:10:00'),
+--       ('Kate Winslet', '1975-09-05 10:10:00'),
+--       ('Elizabeth Olsen', '1989-02-16 02:47:00'),
+--       ('Paul Walker', '1973-09-12 19:10:00'),
+--       ('Emma Wiklund', '1968-09-13 06:15:00'),
+--       ('Trevor Duke-Moretz', '1986-09-13 10:10:00'),
+--       ('Tyler Hoechlin', '1987-09-11 02:47:00'),
+--       ('Andrew Lincoln', '1973-09-14 01:40:00');
+
+--select left(actor,lenght(actor) - locate(" ", actor))-1 as name, right(actor,lenght(actor) - locate(" ", actor))+1 as surname, time(birth_date) as birth_time, date(birth_date) as birth_date from Actors;
