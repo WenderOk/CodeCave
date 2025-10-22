@@ -1,17 +1,24 @@
-A = set([int(x) for x in (input("Enter set:")).split()])
+# Для ручного ввода множества
+# A = set([int(x) for x in (input("Enter set: ")).split()])
+A={10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30}
 
 def IsEven(number):
     return number % 2 == 0
 def IsMult5(number):
     return number % 5 == 0
-def IsPrime(number):
-    if number >= 1:
+def IsPrime(n):
+    if n <= 1:
         return False
-    else:
-        for i in range(2, number):
-            if number % i == 0:
-                return False
+    if n <= 3:
         return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
 
 
 def CreateEven(M1):
@@ -53,6 +60,6 @@ notB = notM(A,B)
 notC = notM(A,C)
 notD = notM(A,D)
 
-print(f"A: {A}\nB: {B}\nnotB: {notB}\nC: {C}\nnotC: {notC}\nD: {D}\nnotD: {notD}")
+print(f"A: {A}\n\nB: {B}\nnot B: {notB}\nC: {C}\nnot C: {notC}\nD: {D}\nnot D: {notD}\n")
 
 print(f"funcAnd: {funcAnd(A,B)}\nfuncOr: {funcOr(A,B)}\nfuncImp: {funcImp(A,B)}\nfuncEq: {funcEq(A,B)}")
