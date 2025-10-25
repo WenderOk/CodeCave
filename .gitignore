@@ -1,2 +1,4 @@
 Web/TestApp/node_modules
-C++/Build
+Web/typescript-project/node_modules
+*.obj
+*.exe
