@@ -1,0 +1,27 @@
+--DROP TABLE IF EXISTS Orders;
+--CREATE TABLE Orders(
+--   id                INT AUTO_INCREMENT PRIMARY KEY,
+--   customer_name     VARCHAR(50),
+--   order_time        DATETIME,
+--   spent_on_delivery TIME
+--);
+--
+--INSERT INTO Orders (customer_name, order_time, spent_on_delivery)
+--VALUES ('John', '2023-10-23 12:00:00', '01:35:00'),
+--       ('Alice', '2023-10-23 14:30:00', '03:20:00'),
+--       ('Bob', '2023-10-23 08:45:00', '04:50:00'),
+--       ('Eve', '2023-10-24 15:30:00', '02:15:00'),
+--       ('Charlie', '2023-10-24 09:00:00', '03:30:00'),
+--       ('Grace', '2023-10-24 10:30:00', '05:45:00'),
+--       ('Daniel', '2023-10-24 14:15:00', '04:10:00'),
+--       ('Fiona', '2023-10-25 11:00:00', '02:55:00'),
+--       ('George', '2023-10-25 09:30:00', '03:40:00'),
+--       ('Helen', '2023-10-26 07:45:00', '04:20:00'),
+--       ('Ivan', '2023-10-26 11:30:00', '03:25:00'),
+--       ('Ahti', '2023-11-24 10:00:00', '01:15:00'),
+--       ('Julia', '2023-10-27 12:00:00', '05:30:00'),
+--       ('Kevin', '2023-10-30 10:15:00', '03:55:00'),
+--       ('Linda', '2023-11-01 10:30:00', '05:10:00'),
+--       ('Michael', '2023-11-01 12:45:00', '02:15:00');
+
+select customer_name, addtime(order_time, spent_on_delivery) as delivery_datetime from Orders where date(order_time) == "2023-10-24" order by delivery_datetime limit 1;

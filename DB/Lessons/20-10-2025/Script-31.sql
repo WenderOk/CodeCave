@@ -1,0 +1,25 @@
+-- DROP TABLE IF EXISTS Songs;
+-- CREATE TABLE Songs(
+--     id           INT PRIMARY KEY AUTO_INCREMENT,
+--     place        INT,
+--     trackname    VARCHAR(40),
+--     artist       VARCHAR(40),
+--     streams      INT,
+--     release_year INT,
+--     length       INT
+-- );
+-- 
+-- INSERT INTO Songs (place, trackname, artist, streams, release_year, length)
+-- VALUES (4, 'Crazy on You', 'Heart', 303885, 1976, 254),
+--        (7, 'My Lover', 'The Sounds', 211133, 2009, 266),
+--        (3, 'Running up That Hill', 'Kate Bush', 339583, NULL, 296),
+--        (5, 'Thrill', 'The Sounds', 294264, 2016, 228),
+--        (9, 'Spent the Day in Bed', 'Morrissey', 174994, 2017, 259),
+--        (2, 'Bigmouth Strikes Again', 'The Smiths', 379112, 1986, 195),
+--        (6, 'Painted By Numbers', 'The Sounds', 265121, 2006, 200),
+--        (8, 'Let Me Kiss You', 'Morrissey', 197426, 2004, 210),
+--        (1, 'Keep Yourself Alive', 'Queen', 385991, NULL, 235),
+--        (10, 'Everyday is Like Sunday', 'Morrissey', 160404, 1988, 216);
+
+
+-- select avg(streams) as avg_streams from Songs;
