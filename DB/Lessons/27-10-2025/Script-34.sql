@@ -1,0 +1,26 @@
+-- DROP TABLE IF EXISTS Songs;
+-- CREATE TABLE Songs(
+--     id        INT PRIMARY KEY AUTO_INCREMENT,
+--     album     VARCHAR(40),
+--     trackname VARCHAR(40),
+--     artist    VARCHAR(40),
+--     streams   INT
+-- );
+-- 
+-- INSERT INTO Songs (album, trackname, artist, streams)
+-- VALUES ('American Idiot', 'Wake Me up When September Ends', 'Green Day', 23454),
+--        ('Dreamboat Annie', 'Crazy on You', 'Heart', 44371),
+--        ('No Exit', 'Maria', 'Blondie', 99581),
+--        ('The Queen Is Dead', 'Bigmouth Strikes Again', 'The Smiths', 42700),
+--        ('American Idiot', 'American Idiot', 'Green Day', 15630),
+--        ('Crossing the Rubicon', 'Midnight Sun', 'The Sounds', 66928),
+--        ('Crossing the Rubicon', 'Queen of Apology', 'The Sounds', 53147),
+--        ('American Idiot', 'Holiday', 'Green Day', 12786),
+--        ('Pollinator', 'Gravity', 'Blondie', 80603),
+--        ('Dying to Say This to You', 'Painted By Numbers', 'The Sounds', 88726);
+
+-- select artist, album, count(*) as num_of_songs from Songs group by artist, album;
+-- select artist, trackname from Songs group by artist;
+-- select artist, sum(streams) as streams from Songs group by artist having sum(streams) > 50000;
+-- select artist, count(*) as num_of_songs from songs where streams > 40000 group by artist having count(*) > 1;
+select artist, count(*) as num_of_songs from Songs group by artist order by count(*);

@@ -1,0 +1,25 @@
+-- DROP TABLE IF EXISTS Films;
+-- CREATE TABLE Films(
+--     id           INT PRIMARY KEY AUTO_INCREMENT,
+--     title        VARCHAR(20),
+--     director     VARCHAR(20),
+--     release_year YEAR,
+--     running_time INT
+-- );
+-- 
+-- INSERT INTO Films (title, director, release_year, running_time) 
+-- VALUES ('Toy Story 2', 'John Lasseter', 1999, 93),
+--        ('WALL-E', 'Andrew Stanton', 2008, 104),
+--        ('Ratatouille', 'Brad Bird', 2007, 115),
+--        ('Up', 'Pete Docter', 2009, 101),
+--        ('Brave', 'Brenda Chapman', 2012, 102),
+--        ('Monsters University', 'Dan Scanlon', 2013, 110),
+--        ('Cars 2', 'John Lasseter', 2011, 120),
+--        ('Finding Nemo', 'Andrew Stanton', 2003, 107),
+--        ('Toy Story', 'John Lasseter', 1995, 81),
+--        ('The Incredibles', 'Brad Bird', 2004, 116);
+
+-- select director from Films group by director having avg(running_time) > (select avg(running_time) from films) order by director;
+-- select director from Films group by director having min(running_time) = (select min(running_time) from Films) order by director;
+-- select director from Films group by director having max(running_time) > (select min(running_time) from Films) order by director;
+select title from Films group by title having max(running_time) = (select running_time from Films where title = "WALL-E" and title != "WALL-E")  order by  title;
