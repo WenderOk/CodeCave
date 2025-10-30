@@ -3,3 +3,5 @@ Web/typescript-project/node_modules
 C++/Build
 *.obj
 *.exe
+*.pdb
+*.ilk
