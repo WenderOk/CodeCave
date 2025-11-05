@@ -4,25 +4,26 @@ int main()
 {
     int number{};
     int digitSum{};
+    int tmp{};
 
     std::cout << "Enter a number: ";
     std::cin >> number;
 
-    while (number != 0)
+    tmp = number;
+
+    while (tmp != 0)
     {
-        digitSum += number % 10;
-        number /= 10;
+        digitSum += tmp % 10;
+        tmp /= 10;
     } 
 
+    std::cout << "Cude of digits: " << digitSum * digitSum * digitSum << "\n";
+    std::cout << "Square of number: " << number * number << "\n";
+    std::cout << "Condition is true?\n";
     if ((digitSum * digitSum * digitSum) == (number * number))
-    {
         std::cout << "Yes" << "\n";
-        std::cout << digitSum << "\n";
-    }
     else
-    {
         std::cout << "No" << "\n";
-        std::cout << digitSum << "\n";
-    }
+    
     return 0;
 }
