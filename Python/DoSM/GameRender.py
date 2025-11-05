@@ -9,12 +9,12 @@ from dataclasses import dataclass
 def get_current_term_size():
     size = os.get_terminal_size()
     width, height = int(size.columns), int(size.lines)
-    return width - 2, height - 2
+    return width, height - 2
 
 
 class Char(str, Enum):
     EMPTY = ' '
-    FILLED = '#'
+    FILLED = '@'
 
 
 @dataclass
@@ -22,12 +22,30 @@ class Position:
     x: int
     y: int
 
+    def __add__(self, other): # + other
+        return Position(self.x + other.x, self.y + other.y)
+
+    def __sub__(self, other): # - other
+        return Position(self.x - other.x, self.y - other.y)
+
+
+@dataclass
+class Vector:
+    x: int
+    y: int
+
+    def __mul__(self, other: int): # * other
+        return Vector(self.x * other, self.y * other)
+
 
 @dataclass
 class Pixel:
     pos: Position
     char: Char
+    velocity: Vector
 
+    def move(self):
+        self.pos += self.velocity
 
 class Frame:
     _width: int
@@ -56,31 +74,42 @@ class Frame:
 
 
 def main():
-    FPS = 120
-
-    width, height = get_current_term_size()
-
-    x_start = 0
-    y_start = 0
-
-    xs = list(range(0, width)) + [width - 1, ] * height + list(range(width - 1, -1, -1)) + [0, ] * height
-    ys = [0, ] * width + list(range(0, height)) + [height - 1, ] * width + list(range(height - 1, -1, -1))
-
-    positions = [Pixel(Position(x, y), Char.FILLED) for x, y in zip(xs, ys)]
+    FPS = 10
     frame_index = 0
 
+    dots = []
+
+
     while True:
+        width, height = get_current_term_size()
         frame = Frame(width, height)
 
-        dot = positions[frame_index % len(positions)]
+        dots.append(Pixel(Position(0, 0), Char.FILLED, Vector(1, 1) * 5))
 
-        frame.draw(dot)
+        for dot in dots[::-1]:
+            frame.draw(dot)
+            frame.render()
 
-        frame.render()
+            dot.move()
 
+            if dot.pos.x < 0:
+                dot.pos.x = width - 1 + dot.pos.x
+            elif dot.pos.x >= width:
+                dot.pos.x = 0
 
+            if dot.pos.y < 0:
+                dot.pos.y = height - 1 + dot.pos.y
+            elif dot.pos.y >= height:
+                dot.pos.y = 0
         frame_index += 1
         time.sleep(1 / FPS)
+
+
+def calc_perim_positions(height, width):
+    xs = list(range(0, width)) + [width - 1, ] * height + list(range(width - 1, -1, -1)) + [0, ] * height
+    ys = [0, ] * width + list(range(0, height)) + [height - 1, ] * width + list(range(height - 1, -1, -1))
+    positions = [Pixel(Position(x, y), Char.FILLED) for x, y in zip(xs, ys)]
+    return positions
 
 
 if __name__ == '__main__':
