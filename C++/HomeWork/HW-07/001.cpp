@@ -4,19 +4,18 @@ int main()
 {
     int width{};
     int height{};
-    enum menuItems{a = 1, b, c, d, e, f, g, h, i, j};
     int flag{-1};
 
     while(flag != 0)
     {
-        std::cout << "Figure drawer\n";
+        std::cout << "\nFigure drawer\n";
         std::cout << "Enter number of figure (enter 0 to exit): ";
         std::cin >> flag;
 
         switch  (flag)
         {
-            case a:
-            std::cout << "Enter width and height (enter 0 to exit): ";
+            case 1:
+            std::cout << "Enter width and height: ";
             std::cin >> width >> height;
 
             for(int j{1}; j <= height; j++)
@@ -32,8 +31,8 @@ int main()
             }
             break;
 
-            case b:
-            std::cout << "Enter width and height (enter 0 to exit): ";
+            case 2:
+            std::cout << "Enter width and height: ";
             std::cin >> width >> height;
 
             for(int j{1}; j <= height; j++)
@@ -49,8 +48,8 @@ int main()
             }
             break;
 
-             case c:
-            std::cout << "Enter width and height (enter 0 to exit): ";
+            case 3:
+            std::cout << "Enter width and height: ";
             std::cin >> width >> height;
 
             for(int j{1}; j <= height; j++)
@@ -66,8 +65,8 @@ int main()
             }
             break;
 
-             case d:
-            std::cout << "Enter width and height (enter 0 to exit): ";
+            case 4:
+            std::cout << "Enter width and height: ";
             std::cin >> width >> height;
 
             for(int j{1}; j <= height; j++)
@@ -83,8 +82,8 @@ int main()
             }
             break;
 
-            case e:
-            std::cout << "Enter width and height (enter 0 to exit): ";
+            case 5:
+            std::cout << "Enter width and height: ";
             std::cin >> width >> height;
 
             for(int j{1}; j <= height; j++)
@@ -102,8 +101,8 @@ int main()
             }
             break;
 
-            case f:
-            std::cout << "Enter width and height (enter 0 to exit): ";
+            case 6:
+            std::cout << "Enter width and height: ";
             std::cin >> width >> height;
 
             for(int j{1}; j <= height; j++)
@@ -121,8 +120,8 @@ int main()
             }
             break;
 
-            case g:
-            std::cout << "Enter width and height (enter 0 to exit): ";
+            case 7:
+            std::cout << "Enter width and height: ";
             std::cin >> width >> height;
 
             for(int j{1}; j <= height; j++)
@@ -138,8 +137,8 @@ int main()
             }
             break;
 
-            case h:
-            std::cout << "Enter width and height (enter 0 to exit): ";
+            case 8:
+            std::cout << "Enter width and height: ";
             std::cin >> width >> height;
 
             for(int j{1}; j <= height; j++)
@@ -155,8 +154,8 @@ int main()
             }
             break;
 
-            case i:
-            std::cout << "Enter width and height (enter 0 to exit): ";
+            case 9:
+            std::cout << "Enter width and height: ";
             std::cin >> width >> height;
 
             for(int j{1}; j <= height; j++)
@@ -172,8 +171,8 @@ int main()
             }
             break;
 
-            case j:
-            std::cout << "Enter width and height (enter 0 to exit): ";
+            case 10:
+            std::cout << "Enter width and height: ";
             std::cin >> width >> height;
 
             for(int j{1}; j <= height; j++)
