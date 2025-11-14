@@ -1,0 +1,5 @@
+a,b = map(int, input().split())
+c,d = map(int, input().split())
+Mi = min(max(a,b),max(c,d))
+Ma = max(min(a,b),min(c,d))
+print(Ma, Mi)
