@@ -29,28 +29,15 @@ void bubbleSort(int arr[], int size, bool inc)
         for(int j{}; j < size-i-1; j++)
         {
             is_swap = false;
-            printArray(arr, size);
             std::cout << "\n";
-            if (inc)
+            if ((inc) ? (arr[j] > arr[j+1]) : (arr[j] < arr[j+1]))
             {
-                if (arr[i] > arr[j])
-                {
-                    int tmp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = tmp;
-                    is_swap = true;
-                }
+                int tmp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = tmp;
+                is_swap = true;
             }
-            else
-            {
-                if (arr[i] < arr[j])
-                {
-                    int tmp = arr[j];
-                    arr[j] = arr[i];
-                    arr[i] = tmp;
-                    is_swap = true;
-                }
-            }
+            printArray(arr, size);
         }
         if (!is_swap)
             break;
