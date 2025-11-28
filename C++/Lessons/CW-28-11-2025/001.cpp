@@ -1,25 +1,57 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <climits>
 
 void quickSort(int arr[], int size);
 void printArray(int arr[], int size);
 void fillWithRand(int arr[], int size);
+int binSearch(int arr[], int size, int number);
 
 int main()
 {
-    const int size {9};
+    const int size{10};
+    int arr[size]{3, 11, 21, 7, 31, 36, 40, 40, 44, 49};
 
-    int arr[size]{6,1,2,3,4,5};
-    fillWithRand(arr, size);
+    // fillWithRand(arr, size);
     printArray(arr, size);
-
     quickSort(arr, size);
     printArray(arr, size);
 
-    return 0;    
+    int value{};
+    std::cout << "Enter value to find: ";
+    std::cin >> value;
+
+    int result{binSearch(arr, size, value)};
+
+    if (result)
+        std::cout << "Value index is: " << result << "\n";
+    else
+        std::cout << "Value not found!" << "\n";
+
+    return 0;
 }
+
+int binSearch(int arr[], int size, int number)
+{
+    int lb{0};
+    int rb{size-1};
+    int mid{rb / 2};
+
+    while(1)
+    {
+        mid = (lb + rb) / 2;
+        if(number == arr[mid]) 
+            return mid;
+        else if(number > arr[mid])
+            lb = mid + 1;
+        else
+            rb = mid - 1;
+        if (lb > rb)
+            return -1;
+    }
+
+}
+
 
 void quickSort(int arr[], int size)
 {
@@ -43,8 +75,6 @@ void quickSort(int arr[], int size)
     if(rb >= 0) quickSort(arr, rb+1);
     if(size > lb) quickSort(arr + lb, size - lb);
 }
-
-
 
 void printArray(int arr[], int size)
 {
