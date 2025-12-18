@@ -15,8 +15,7 @@ int main()
 
 void strcpy(char* src, char* dest)
 {
-    for(; *src != '\0'; src++, dest++)
-    {
+    for(; *src != '\0'; src++, dest++) \
         *dest = *src;
-    }
+    *dest = '\0';
 }
