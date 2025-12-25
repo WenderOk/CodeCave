@@ -3,8 +3,9 @@ create table Students(
 	id int not null unique,
 	name varchar(20) not null check (name != ""),
 	surname varchar(20) not null check (surname != ""),
-	age int check (age >= 18) default 18,
-	date_of_receipt date check (date_of_receipt >= "2023-09-01") default (curdate()) );
+	age int default 18 check (age >= 18),
+	date_of_receipt date default curdate() check (date_of_receipt >= "2023-09-01")
+);
 select * from Students;
 
 create table Students(
