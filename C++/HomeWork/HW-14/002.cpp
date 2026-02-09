@@ -6,8 +6,7 @@ int findInArray(int arr[], int size, int value);
 int findDublicates(int arr1[], int arr2[], int size1, int size2);
 int* createResultArr(int arr1[], int arr2[], int size1, int size2, int res_size);
 
-// Очень кривое и не оптимизированное рещение, но зато работает. изначально я думал динамически содавать массив по мере сравнения элементов, 
-// но это оказалось слишком сложно, поэтому сделал как получилось
+// По сути модифицированная версия первой программы с дублированием циклов. Не очень красиво и оптимизировано получаеся, но зато работает
 
 int main()
 {
@@ -43,7 +42,8 @@ int main()
 
 int findDublicates(int arr1[], int arr2[], int size1, int size2)
 {
-    int* tmp{new int[size1]{}};
+    int tmp_size{size1+size2};
+    int* tmp{new int[tmp_size]{}};
     int counter{};
     for (int i{}; i < size1; i++)
     {
@@ -56,9 +56,26 @@ int findDublicates(int arr1[], int arr2[], int size1, int size2)
                 break;
             }
         }  
-        if(!isIncluded && (findInArray(tmp, size1, arr1[i]) < 0)) 
+        if(!isIncluded && (findInArray(tmp, tmp_size, arr1[i]) < 0)) 
         {
             tmp[i] = arr1[i];
+            counter++;
+        }
+    }
+    for (int i{}; i < size2; i++)
+    {
+        bool isIncluded{false};
+        for (int j{}; j < size1; j++)
+        {
+            if(arr1[j] == arr2[i])
+            {
+                isIncluded = true;
+                break;
+            }
+        }  
+        if(!isIncluded && (findInArray(tmp, tmp_size, arr2[i]) < 0)) 
+        {
+            tmp[i] = arr2[i];
             counter++;
         }
     }
@@ -83,6 +100,23 @@ int* createResultArr(int arr1[], int arr2[], int size1, int size2, int res_size)
         if(!isIncluded && (findInArray(result, res_size, arr1[i]) < 0))
         {
             result[k] = arr1[i];
+            k++;
+        }
+    }
+    for (int i{}; i < size2; i++)
+    {
+        bool isIncluded{false};
+        for (int j{}; j < size1; j++)
+        {
+            if(arr1[j] == arr2[i]) 
+            {
+                isIncluded = true;
+                break;
+            }
+        }  
+        if(!isIncluded && (findInArray(result, res_size, arr2[i]) < 0))
+        {
+            result[k] = arr2[i];
             k++;
         }
     }

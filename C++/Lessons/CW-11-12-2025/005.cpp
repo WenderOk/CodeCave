@@ -61,7 +61,6 @@ void fillDub(int arr1[], int arr2[], int result[], int size1, int size2, int res
             k++;
         }
     }
-    
 }
 
 int findDub(int arr1[], int arr2[], int size1, int size2)
