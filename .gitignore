@@ -6,3 +6,4 @@ C++/Build
 *.pdb
 *.ilk
 Python/NumericalMethods/Homework/test.py
+*.vs

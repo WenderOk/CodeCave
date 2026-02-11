@@ -1,0 +1,15 @@
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\bin\Debug\net8.0\FirstProject.exe
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\bin\Debug\net8.0\FirstProject.deps.json
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\bin\Debug\net8.0\FirstProject.runtimeconfig.json
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\bin\Debug\net8.0\FirstProject.dll
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\bin\Debug\net8.0\FirstProject.pdb
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\obj\Debug\net8.0\FirstProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\obj\Debug\net8.0\FirstProject.AssemblyInfoInputs.cache
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\obj\Debug\net8.0\FirstProject.AssemblyInfo.cs
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\obj\Debug\net8.0\FirstProject.csproj.CoreCompileInputs.cache
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\obj\Debug\net8.0\FirstProject.sourcelink.json
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\obj\Debug\net8.0\FirstProject.dll
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\obj\Debug\net8.0\refint\FirstProject.dll
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\obj\Debug\net8.0\FirstProject.pdb
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\obj\Debug\net8.0\FirstProject.genruntimeconfig.cache
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\FirstProject\obj\Debug\net8.0\ref\FirstProject.dll
