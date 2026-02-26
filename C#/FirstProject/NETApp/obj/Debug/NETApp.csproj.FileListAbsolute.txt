@@ -1,0 +1,7 @@
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\NETApp\bin\Debug\NETApp.exe.config
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\NETApp\bin\Debug\NETApp.exe
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\NETApp\bin\Debug\NETApp.pdb
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\NETApp\obj\Debug\NETApp.csproj.AssemblyReference.cache
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\NETApp\obj\Debug\NETApp.csproj.CoreCompileInputs.cache
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\NETApp\obj\Debug\NETApp.exe
+C:\Users\TOP\source\repos\WenderRPO\CodeCave\C#\FirstProject\NETApp\obj\Debug\NETApp.pdb
