@@ -19,7 +19,7 @@ void printArrayInt(int arr[], int size)
 
 int minInArrayInt(int arr[], int size)
 {
-    int min{std::numeric_limits<int>::min()};
+    int min{std::numeric_limits<int>::max()};
     for(int i{}; i < size; i++)
         if(arr[i] < min) min = arr[i];
     return min;
@@ -27,7 +27,7 @@ int minInArrayInt(int arr[], int size)
 
 int maxInArrayInt(int arr[], int size)
 {
-    int max{std::numeric_limits<int>::max()};
+    int max{std::numeric_limits<int>::min()};
     for(int i{}; i < size; i++)
         if(arr[i] > max) max = arr[i];
     return max;
@@ -56,6 +56,15 @@ void quickSortInt(int arr[], int size)
     if(size > lb) quickSortInt(arr + lb, size - lb);
 }
 
+void changeArrayInt(int arr[], int size, int index, int value)
+{
+    if(index > size-1 || index < 0)
+        return;
+    else
+        arr[index] = value;
+}
+
+
 
 void fillArrayRandDouble(double arr[], int size)
 {
@@ -73,7 +82,7 @@ void printArrayDouble(double arr[], int size)
 
 int minInArrayDouble(double arr[], int size)
 {
-    double min{std::numeric_limits<double>::min()};
+    double min{std::numeric_limits<double>::max()};
     for(int i{}; i < size; i++)
         if(arr[i] < min) min = arr[i];
     return min;
@@ -81,7 +90,7 @@ int minInArrayDouble(double arr[], int size)
 
 int maxInArrayDouble(double arr[], int size)
 {
-    double max{std::numeric_limits<double>::max()};
+    double max{std::numeric_limits<double>::min()};
     for(int i{}; i < size; i++)
         if(arr[i] > max) max = arr[i];
     return max;
@@ -110,6 +119,14 @@ void quickSortDouble(double arr[], int size)
     if(size > lb) quickSortDouble(arr + lb, size - lb);
 }
 
+void changeArrayDouble(double arr[], int size, int index, double value)
+{
+    if(index > size-1 || index < 0)
+        return;
+    else
+        arr[index] = value;
+}
+
 
 
 void fillArrayRandChar(char arr[], int size)
@@ -128,7 +145,7 @@ void printArrayChar(char arr[], int size)
 
 int minInArrayChar(char arr[], int size)
 {
-    char min{std::numeric_limits<char>::min()};
+    char min{std::numeric_limits<char>::max()};
     for(int i{}; i < size; i++)
         if(arr[i] < min) min = arr[i];
     return min;
@@ -136,7 +153,7 @@ int minInArrayChar(char arr[], int size)
 
 int maxInArrayChar(char arr[], int size)
 {
-    char max{std::numeric_limits<char>::max()};
+    char max{std::numeric_limits<char>::min()};
     for(int i{}; i < size; i++)
         if(arr[i] > max) max = arr[i];
     return max;
@@ -163,4 +180,12 @@ void quickSortChar(char arr[], int size)
     } while(lb <= rb);
     if(rb >= 0) quickSortChar(arr, rb+1);
     if(size > lb) quickSortChar(arr + lb, size - lb);
+}
+
+void changeArrayChar(char arr[], int size, int index, char value)
+{
+    if(index > size-1 || index < 0)
+        return;
+    else
+        arr[index] = value;
 }
