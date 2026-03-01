@@ -1,0 +1,1 @@
+int countFileRows(const char* path);
