@@ -7,4 +7,6 @@ C++/Build
 *.ilk
 Python/NumericalMethods/Homework/test.py
 *.vs
-C#/FirstProject/FirstProject/obj
+*\obj
+*\bin
+*.cache
