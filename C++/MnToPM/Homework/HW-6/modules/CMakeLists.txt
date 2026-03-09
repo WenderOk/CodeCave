@@ -1,0 +1,3 @@
+project(lib) 
+
+add_library(lib lib.cpp lib.h)

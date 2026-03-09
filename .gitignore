@@ -10,3 +10,4 @@ Python/NumericalMethods/Homework/test.py
 *\obj
 *\bin
 *.cache
+*build
