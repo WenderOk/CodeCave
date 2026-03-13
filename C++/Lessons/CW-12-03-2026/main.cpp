@@ -42,8 +42,10 @@ int main()
 
     Fraction f1{1,3};
     Fraction f2{f1};
+    Fraction f3{Fraction{3, 5}};
     f1.print();
     f2.print();
+    f3.print();
 
 
     return 0;
