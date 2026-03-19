@@ -36,7 +36,7 @@ public:
 
     DynArr& setElem(int index, int value)
     {
-         array[index] = value;
+        array[index] = value;
         return *this; 
     }
 
@@ -52,11 +52,22 @@ public:
     }
 };
 
-
-void display(const DynArr& da)
+void print(const DynArr& da)
 {
     for(int i{}; i < da.getSize(); i++)
         std::cout << da.getElem(i) << " ";
     std::cout << "\n";
+}
+
+
+int main()
+{
+    DynArr da1{4};
+    da1.randomize();
+    print(da1);
+    print(3);
     
+
+
+    return 0;
 }
