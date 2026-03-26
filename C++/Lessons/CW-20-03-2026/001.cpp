@@ -45,6 +45,13 @@ public:
     friend Point operator-(const Point& p);
     friend Point operator*(const Point& p, double value);
     friend Point operator*(double value, const Point& p);
+    friend Point& operator++(Point& p);
+    friend const Point operator++(Point& p, int);
+    friend Point& operator--(Point& p);
+    // Point& operator++();
+    const Point operator--(int);
+    friend std::ostream& operator<< (std::ostream& output, const Point& p);
+    friend std::istream& operator>> (std::istream& input, Point& p);
 };
 
 Point operator*(const Point& p, double value)
@@ -54,24 +61,86 @@ Point operator*(double value, const Point& p)
 { return Point(p.x * value, p.y * value); }
 
 Point operator+(const Point& p1, const Point& p2)
-{return Point(p1.x + p2.x, p1.y + p2.y);}
+{ return Point(p1.x + p2.x, p1.y + p2.y); }
 
 Point operator-(const Point& p)
-{return Point(-p.x, -p.y);}
+{ return Point(-p.x, -p.y); }
+
+// Префикс 
+Point& operator++(Point& p)
+{
+    ++(p.x);
+    ++(p.y); 
+    return p;
+}
+
+// Постфикс
+const Point operator++(Point& p, int)
+{
+    Point point(p.x ,p.y);
+    ++p;
+    return point;
+}
+
+Point& operator--(Point& p)
+{
+    --(p.x);
+    --(p.y); 
+    return p;
+}
+
+// Point& Point::operator++()
+// {
+//     ++x;
+//     ++y;
+//     return *this;
+// }
+
+const Point Point::operator--(int)
+{
+    Point point(x, y);
+    --(*this);
+    return point;
+}
+
+
+std::ostream& operator<< (std::ostream& output, const Point& p)
+{
+    output << "(" << p.x << ", " << p.y << ")";
+    return output;
+}
+std::istream& operator>> (std::istream& input, Point& p)
+{
+    input >> p.x;
+    input.ignore(1);
+    input >> p.y;
+    return input;
+}
+
+
 
 
 int main()
 {
-    Point p1{2,4};
-    Point p2{3,2};
-    Point sum{p1+p2};
-    sum.print();
+    Point p1{2,3};
+    Point p2{2,3};
 
-    (-sum).print();
+    Point sum1;
+    Point sum2;
+    sum1 = p1++*2;
+    sum2 = ++p2*2;
+    // sum1.print();
+    // sum2.print();
+    // p1.print();
+    // p2.print();
 
-    (p1 * 2).print();
-    (2 * p1).print();
-    
+    Point p3;
+    // std::cin >> p3;
+    // std::cout << p3;
+
+    p1 = p2 = p3 = Point(2,1);
+    p1=p1;
+    std::cout << p1 << ", " << p2 << ", " << p3 << "\n";
 
     return 0;
 }
