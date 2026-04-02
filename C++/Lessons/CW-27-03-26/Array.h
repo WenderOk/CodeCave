@@ -7,7 +7,8 @@ class Array
     int size;
     int* array;
 public:
-    explicit Array(int s = 10);
+    explicit Array(int s);
+    Array();
     Array(const Array& arr);
     ~Array();
     int len() const; 
@@ -18,6 +19,7 @@ public:
     { return !(*this == arr); }
     int& operator[](int i);
     int operator[](int i) const;
+    void randomize();
 private:
     friend std::ostream& operator<<(std::ostream& out, const Array& arr);
     friend std::istream& operator>>(std::istream& in, Array& arr);
