@@ -6,7 +6,6 @@ Array arrayFactory(int arrSize)
     Array arr{arrSize};
     arr.randomize();
     return arr;
-
 }
 
 int main()
@@ -29,13 +28,17 @@ int main()
     // Array arr1(arrayFactory(10));
     // std::cout << "Array 1: " << arr1 << "\n";
 
-    int x{42};
-    int& refX{x};
-    const int& cRefX{x};
-    const int& cRefXX{x+24};
+    Array arr1{ arrayFactory(15) };
+    std::cout << "Array 1 " << arr1 << "\n\n";
+    
+    Array arr2{10};
+    arr2.randomize();
+    Array arr3{};
+    arr3 = arr2;
+    std::cout << "Array 3 " << arr3 << "\n\n";
 
-    std::cout << x << "\n" << refX << "\n" << cRefX << "\n" << cRefXX;
-
+    arr1 = arrayFactory(4);
+    std::cout << "Array 1 " << arr1 << "\n\n";
 
     return 0;
 }

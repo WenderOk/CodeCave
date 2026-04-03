@@ -10,10 +10,12 @@ public:
     explicit Array(int s);
     Array();
     Array(const Array& arr);
+    Array(Array&& arr);
     ~Array();
     int len() const; 
 
     const Array& operator=(const Array& arr);
+    const Array& operator=(Array&& arr);
     bool operator==(const Array& arr) const;
     bool operator!=(const Array& arr) const
     { return !(*this == arr); }

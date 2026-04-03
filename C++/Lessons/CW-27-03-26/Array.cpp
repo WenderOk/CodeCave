@@ -16,6 +16,13 @@ Array::Array(const Array& arr): size{arr.size}, array{new int[size]}
     std::cout << "Copied array with " << size << " elements\nAddress " << this << "\n";
 }
 
+Array::Array(Array&& arr) : size{arr.size}, array{arr.array}
+{
+    arr.array = nullptr;
+    arr.size = 0;
+    std::cout << "Moved array with " << size << " elements\nAddress " << this << "\n";
+}
+
 Array::~Array()
 {
     std::cout << "trying to delete array with " << size << " elements\nAddress " << array << "\n";
@@ -38,7 +45,23 @@ const Array& Array::operator=(const Array& arr)
     }
     for(int i{}; i < size; i++)
         array[i] = arr[i];
-    std::cout << "Array with address " << this << " assigned\n";
+    std::cout << "Assigned by copying array with address " << this << "\n";
+    return *this;
+}
+
+const Array& Array::operator=(Array&& arr)
+{
+    if(this == &arr)
+        return *this;
+
+    delete array;
+    array = arr.array;
+    size = arr.size;
+    arr.array = nullptr;
+    arr.size = 0;
+
+    std::cout << "Moving operator used\n";
+    std::cout << "Moved array with " << size << " elements\nAddress " << this << "\n";
     return *this;
 }
 
@@ -91,5 +114,4 @@ void Array::randomize()
     {
         array[i] = std::rand() % 100 + 1;
     }
-    
 }
