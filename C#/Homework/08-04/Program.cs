@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace _08_04
 {
@@ -12,8 +15,52 @@ namespace _08_04
     interface IPerimetr
     { double GetPerimetr(); }
 
-    abstract class Shape
+    public abstract class Shape
     { public abstract string Name { get; } }
+
+    public class TriangleExceprion : ApplicationException
+    {
+        public TriangleExceprion() : base("Triangle with this sides cannot exist!") { }
+    }
+
+    public interface ILogger
+    {
+        void Log(string message);
+        void ErrorLog(string message);
+    }
+
+    public class ConsoleLogger : ILogger
+    {
+        public void ErrorLog(string message)
+        {
+            Console.WriteLine($"{DateTime.Now} [ERROR]: {message}");
+        }
+
+        public void Log(string message)
+        {
+            Console.WriteLine($"{DateTime.Now} [INFO]: {message}");
+        }
+    }
+
+    public class FileLogger : ILogger
+    {
+        private readonly string path = "Log.txt";
+        public void ErrorLog(string message)
+        {
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                writer.WriteLine($"{DateTime.Now} [ERROR]: {message}");
+            }
+        }
+
+        public void Log(string message)
+        {
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                writer.WriteLine($"{DateTime.Now} [INFO]: {message}");
+            }
+        }
+    }
 
     class Square : Shape, ISquare, IPerimetr
     {
@@ -29,6 +76,11 @@ namespace _08_04
 
         public double GetPerimetr()
         { return 4 * Side; }
+
+        public override string ToString()
+        {
+            return $"{Side} P={GetPerimetr()} S={GetSquare()}";
+        }
     }
 
     class Circle : Shape, ISquare, IPerimetr
@@ -45,6 +97,11 @@ namespace _08_04
 
         public double GetPerimetr()
         { return 2 * Math.PI * Radius; }
+
+        public override string ToString()
+        {
+            return $"{Radius} P={GetPerimetr()} S={GetSquare()}";
+        }
     }
 
     class Triangle : Shape, ISquare, IPerimetr
@@ -56,7 +113,8 @@ namespace _08_04
         public Triangle(double a, double b, double c)
         {
             if (a + b <= c || a + c <= b || b + c <= a)
-            { Console.WriteLine("Triangle with this sides cannot exist!"); } // все равно не выводится при создании несуществующего треугольника
+                throw new TriangleExceprion();
+            
 
             A = a;
             B = b;
@@ -73,30 +131,72 @@ namespace _08_04
 
         public double GetPerimetr()
         { return A + B + C; }
-    }
 
-    class Task
-    {
-        public void run()
+        public override string ToString()
         {
-            Square sq = new Square(12);
-            Circle cir = new Circle(7);
-            Triangle tr1 = new Triangle(12, 8, 7);
-
-            Console.WriteLine($"{sq.Name}: side = {sq.Side}, area = {sq.GetSquare()}, perimetr = {sq.GetPerimetr()}\n");
-            Console.WriteLine($"{cir.Name}: radius = {cir.Radius}, area = {cir.GetSquare()}, perimetr = {cir.GetPerimetr()}\n");
-            Console.WriteLine($"{tr1.Name}: sides = {tr1.A}, {tr1.B}, {tr1.C}, area = {tr1.GetSquare()}, perimetr = {tr1.GetPerimetr()}");
-            Console.ReadLine();
+            return $"{A} {B} {C} P={GetPerimetr()} S={GetSquare()}";
         }
-
     }
+
+    public class ShapeManager
+    {
+        private readonly ILogger logger;
+
+        public ShapeManager(ILogger logger)
+        { this.logger = logger; }
+
+        public void AddShape(List<Shape> shapes, Shape shape)
+        {
+            try
+            {
+                shapes.Add(shape);
+                logger.Log("Figure succefully added");
+
+            }
+            catch (TriangleExceprion ex)
+            {
+                logger.ErrorLog(ex.Message);
+            }
+        }       
+        public void AddShape2(List<Shape> shapes, Func<Shape> creator)
+        {
+            try
+            {
+                Shape shape = creator();
+                shapes.Add(shape);
+                logger.Log("Figure succefully added");
+
+            }
+            catch (TriangleExceprion ex)
+            {
+                logger.ErrorLog(ex.Message);
+            }
+        }
+    }
+
+
 
     class Program
     {
         static void Main(string[] args)
         {
-            Task t = new Task();
-            t.run();
+            ILogger logger = new FileLogger();
+            ShapeManager mgr1 = new ShapeManager(logger);
+
+            List<Shape> shapes = new List<Shape>
+            {
+                new Square(5),
+                new Triangle(5, 5, 4)
+            };
+
+            mgr1.AddShape2(shapes, () => new Circle(5));
+            mgr1.AddShape2(shapes, () => new Square(10));
+            mgr1.AddShape2(shapes, () => new Triangle(2,2,10));
+
+            foreach (Shape item in shapes)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
