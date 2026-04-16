@@ -37,13 +37,14 @@ public:
 
     void addColumn(int colPos, int* newCol = nullptr)
     {
-        
         int* newData{new int[(sizeX + 1)* sizeY]};
         for (int i{}; i < sizeY; i++)
         {
             for (int j{}; j < sizeX; j++)
-            { *(newCol + index2D(i, j + (j >= colPos), sizeX-1)) = *(newCol + index2D(i, j));}
-            *(newData + index2D(i, colPos,sizeX+1)) = newCol ? *(newCol + i) : 0;
+            {
+                *(newData + index2D(i, j + (j >= colPos), sizeX + 1)) = *(data + index2D(i, j));
+            }
+            *(newData + index2D(i, colPos,sizeX + 1)) = newCol ? *(newCol + i) : 0;
         }   
         delete[] data;
         data = newData;

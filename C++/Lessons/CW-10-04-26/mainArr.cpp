@@ -18,6 +18,8 @@ int main()
     std::cout << "\n";
     arr.deleteColumn(1);
     arr.print();
+    std::cout << "\n";
     arr.addColumn(1, new int[3]{12, 13, 14});
     arr.print();
+    std::cout << "\n";
 }
