@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace goshaevrey
+namespace _16_04
 {
     public delegate void Exam_Delegate(string m);
     public enum Enum_Subject { Math = 1, Physics, Programming }
