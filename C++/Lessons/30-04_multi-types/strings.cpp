@@ -2,7 +2,7 @@
 
 int main()
 {
-    char* str{"George"};
+    char* str{"Георгий"};
     for(int i{}; i <strlen(str); i++)
         std::cout << (int)str[i] << ' ';
 
