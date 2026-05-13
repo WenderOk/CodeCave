@@ -32,17 +32,33 @@ namespace _06_05_2
         public string AddressStreet { get; set; }
 
         public PersonCard() { }
-        public PersonCard(string org, string fil, string filCity, string lName, string fName, string pName, int cat, string addCity, string addStr)
+        public PersonCard(string org, string fil, string filCity, int id, string lName, string fName, string pName, int cat, string addCity, string addStr)
         {
             Organization = org;
             Filial = fil;
             FilialCity = filCity;
+            Id = id;
             LastName = lName;
             FirstName = fName;
             Patronymic = pName;
             Category = cat;
             AddressCity = addCity;
             AddressStreet = addStr;
+        }
+        public override string ToString()
+        {
+            return $"{Organization} - {Filial} - {FilialCity} " +
+                    $"{Id} - {LastName} {FirstName} {Patronymic} " +
+                    $"категория {Category} - Прописка {AddressCity}, {AddressStreet}";
+        }
+        public string Display
+        {
+            get
+            {
+                return $"{Organization} - {Filial} - {FilialCity} " +
+                    $"{Id} - {LastName} {FirstName} {Patronymic} " +
+                    $"категория {Category} - Прописка {AddressCity}, {AddressStreet}";
+            }
         }
     }
 }

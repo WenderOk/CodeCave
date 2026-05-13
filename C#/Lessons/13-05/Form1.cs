@@ -62,6 +62,27 @@ namespace _06_05_2
             FilInput.Text = "Zapadny";
             CityInput.SelectedIndex = 0;
             PersonCityInput.SelectedIndex = 1;
+
+            // в констркуторе формы1
+            //привязка данных
+            bs.DataSource = personCards;
+            listBox_cards.DataSource = bs;
+
+            listBox_cards.DisplayMember = "Display";
+
+            //привязка элементов
+            OrgInput.DataBindings.Add(new Binding("Text", bs, "Organization", false, DataSourceUpdateMode.OnPropertyChanged));
+            FilInput.DataBindings.Add(new Binding("Text", bs, "Filial", false, DataSourceUpdateMode.OnPropertyChanged));
+            CityInput.DataBindings.Add(new Binding("Text", bs, "FilialCity", false, DataSourceUpdateMode.OnPropertyChanged));
+
+            IdInput.DataBindings.Add("Value", bs, "Id");
+
+            SecNameInput.DataBindings.Add(new Binding("Text", bs, "LastName", false, DataSourceUpdateMode.OnPropertyChanged));
+            FirstNameInput.DataBindings.Add(new Binding("Text", bs, "FirstName", false, DataSourceUpdateMode.OnPropertyChanged));
+            PatInput.DataBindings.Add(new Binding("Text", bs, "Patronymic", false, DataSourceUpdateMode.OnPropertyChanged));
+            CatInput.DataBindings.Add(new Binding("Value", bs, "Category", false, DataSourceUpdateMode.OnPropertyChanged));
+            PersonCityInput.DataBindings.Add(new Binding("Text", bs, "AddressCity", false, DataSourceUpdateMode.OnPropertyChanged));
+            AddressStrInput.DataBindings.Add(new Binding("Text", bs, "AddressStreet", false, DataSourceUpdateMode.OnPropertyChanged));
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -76,6 +97,7 @@ namespace _06_05_2
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            //собираем данные из полей
             //собираем данные из полей
             string organisation = OrgInput.Text;
             string filial_name = FilInput.Text;
@@ -93,14 +115,12 @@ namespace _06_05_2
                             id, last_name, first_name, patronomic, kategory,
                             person_city, street);
 
-            listBox_cards.DisplayMember = "Display";
+
             personCards.Add(card);
             //bs.Add(card);  //либо так
-
-            bs.Position = personCards.Count - 1; // 🔥 ключевая строка
+            bs.Position = personCards.Count - 1; //  удержание нового элемента
             next_id++;
             ClearFields();
-            //MessageBox.Show(person_Cards.Count.ToString());
         }
 
         public void ClearFields()
@@ -119,50 +139,7 @@ namespace _06_05_2
             PersonCityInput.SelectedIndex = 1;
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
-        {
-            if (listBox_cards.SelectedItem is PersonCard card)
-            {
-                OrgInput.Text = card.Organization;
-                FilInput.Text = card.Filial;
-                CityInput.Text = card.FilialCity;
-                IdInput.Value = card.Id;
-                SecNameInput.Text = card.LastName;
-                FirstNameInput.Text = card.FirstName;
-                PatInput.Text = card.Patronymic;
-                CatInput.Value = card.Category;
-                PersonCityInput.Text = card.AddressCity;
-                AddressStrInput.Text = card.AddressStreet;
 
-                ChangeVisibility(false);
-            }
-        }
-
-        private void SaveButton_Click(object sender, EventArgs e)
-        {
-            int index = listBox_cards.SelectedIndex;
-            //MessageBox.Show($"{index}");
-            string organisation = OrgInput.Text;
-            string filial_name = FilInput.Text;
-            string filial_city = CityInput.SelectedItem?.ToString() ?? "";
-            int id = (int)IdInput.Value;
-            //int id = next_id;
-            string last_name = SecNameInput.Text;
-            string first_name = FirstNameInput.Text;
-            string patronomic = PatInput.Text;
-            int kategory = (int)CatInput.Value;
-            string person_city = PersonCityInput.SelectedItem?.ToString() ?? "";
-            string street = AddressStrInput.Text;
-
-            PersonCard card = new PersonCard(organisation, filial_name, filial_city,
-                            id, last_name, first_name, patronomic, kategory,
-                            person_city, street);
-
-            bs.RemoveAt(index);
-            bs.Insert(index, card);
-
-            ChangeVisibility(true);
-        }
 
         public void ChangeVisibility(bool visible)
         {

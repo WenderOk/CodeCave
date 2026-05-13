@@ -49,11 +49,11 @@
             this.CatInput = new System.Windows.Forms.NumericUpDown();
             this.PersonCityInput = new System.Windows.Forms.ComboBox();
             this.AddressStrInput = new System.Windows.Forms.TextBox();
-            this.listBox_cards = new System.Windows.Forms.ListBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
+            this.listView_cards = new System.Windows.Forms.ListView();
             this.EditButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
@@ -90,7 +90,6 @@
             this.label1.Size = new System.Drawing.Size(82, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Organization";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -270,14 +269,6 @@
             this.AddressStrInput.Size = new System.Drawing.Size(153, 20);
             this.AddressStrInput.TabIndex = 5;
             // 
-            // listBox_cards
-            // 
-            this.listBox_cards.FormattingEnabled = true;
-            this.listBox_cards.Location = new System.Drawing.Point(396, 12);
-            this.listBox_cards.Name = "listBox_cards";
-            this.listBox_cards.Size = new System.Drawing.Size(339, 316);
-            this.listBox_cards.TabIndex = 1;
-            // 
             // AddButton
             // 
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -298,7 +289,7 @@
             this.RemoveButton.TabIndex = 3;
             this.RemoveButton.Text = "REMOVE";
             this.RemoveButton.UseVisualStyleBackColor = true;
-            this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
+            this.RemoveButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.RemoveButton_MouseClick);
             // 
             // ClearButton
             // 
@@ -309,6 +300,7 @@
             this.ClearButton.TabIndex = 4;
             this.ClearButton.Text = "CLEAR";
             this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ClearButton_MouseClick);
             // 
             // ExitButton
             // 
@@ -321,27 +313,36 @@
             this.ExitButton.UseVisualStyleBackColor = true;
             this.ExitButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ExitButton_MouseClick);
             // 
+            // listView_cards
+            // 
+            this.listView_cards.HideSelection = false;
+            this.listView_cards.Location = new System.Drawing.Point(401, 12);
+            this.listView_cards.Name = "listView_cards";
+            this.listView_cards.Size = new System.Drawing.Size(367, 318);
+            this.listView_cards.TabIndex = 6;
+            this.listView_cards.UseCompatibleStateImageBehavior = false;
+            // 
             // EditButton
             // 
             this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EditButton.Location = new System.Drawing.Point(12, 399);
+            this.EditButton.Location = new System.Drawing.Point(12, 385);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(76, 30);
-            this.EditButton.TabIndex = 6;
+            this.EditButton.TabIndex = 7;
             this.EditButton.Text = "EDIT";
             this.EditButton.UseVisualStyleBackColor = true;
-            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+            this.EditButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.EditButton_MouseClick);
             // 
             // SaveButton
             // 
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SaveButton.Location = new System.Drawing.Point(98, 399);
+            this.SaveButton.Location = new System.Drawing.Point(98, 385);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(76, 30);
-            this.SaveButton.TabIndex = 7;
+            this.SaveButton.TabIndex = 8;
             this.SaveButton.Text = "SAVE";
             this.SaveButton.UseVisualStyleBackColor = true;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            this.SaveButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SaveButton_MouseClick);
             // 
             // Form1
             // 
@@ -350,11 +351,11 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.EditButton);
+            this.Controls.Add(this.listView_cards);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.RemoveButton);
             this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.listBox_cards);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "Form1";
@@ -382,7 +383,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.ListBox listBox_cards;
         private System.Windows.Forms.TextBox OrgInput;
         private System.Windows.Forms.TextBox FilInput;
         private System.Windows.Forms.TextBox SecNameInput;
@@ -397,6 +397,7 @@
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.ListView listView_cards;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button SaveButton;
     }
