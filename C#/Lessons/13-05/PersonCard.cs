@@ -47,12 +47,12 @@ namespace _06_05_2
 
         public string Filial
         {
-            get => organization;
+            get => filial;
             set
             {
-                if (organization != value)
+                if (filial != value)
                 {
-                    Filial = value;
+                    filial = value;
                     OnPropertyChanged(nameof(Filial));
                     OnPropertyChanged(nameof(Display));
                 }
@@ -61,12 +61,12 @@ namespace _06_05_2
 
         public string FilialCity
         {
-            get => organization;
+            get => filialCity;
             set
             {
-                if (organization != value)
+                if (filialCity != value)
                 {
-                    FilialCity = value;
+                    filialCity = value;
                     OnPropertyChanged(nameof(FilialCity));
                     OnPropertyChanged(nameof(Display));
                 }
@@ -75,12 +75,12 @@ namespace _06_05_2
 
         public int Id
         {
-            get => Id;
+            get => id;
             set
             {
-                if (Id != value)
+                if (id != value)
                 {
-                    Id = value;
+                    id = value;
                     OnPropertyChanged(nameof(Id));
                     OnPropertyChanged(nameof(Display));
                 }
@@ -89,12 +89,12 @@ namespace _06_05_2
 
         public string LastName
         {
-            get => organization;
+            get => lastName;
             set
             {
-                if (organization != value)
+                if (lastName != value)
                 {
-                    LastName = value;
+                    lastName = value;
                     OnPropertyChanged(nameof(LastName));
                     OnPropertyChanged(nameof(Display));
                 }
@@ -103,12 +103,12 @@ namespace _06_05_2
 
         public string FirstName
         {
-            get => organization;
+            get => firstName;
             set
             {
-                if (organization != value)
+                if (firstName != value)
                 {
-                    FirstName = value;
+                    firstName = value;
                     OnPropertyChanged(nameof(FirstName));
                     OnPropertyChanged(nameof(Display));
                 }
@@ -117,12 +117,12 @@ namespace _06_05_2
 
         public string Patronymic
         {
-            get => organization;
+            get => patronymic;
             set
             {
-                if (organization != value)
+                if (patronymic != value)
                 {
-                    Patronymic = value;
+                    patronymic = value;
                     OnPropertyChanged(nameof(Patronymic));
                     OnPropertyChanged(nameof(Display));
                 }
@@ -131,12 +131,12 @@ namespace _06_05_2
 
         public int Category
         {
-            get => Category;
+            get => category;
             set
             {
-                if (Category != value)
+                if (category != value)
                 {
-                    Category = value;
+                    category = value;
                     OnPropertyChanged(nameof(Category));
                     OnPropertyChanged(nameof(Display));
                 }
@@ -145,12 +145,12 @@ namespace _06_05_2
 
         public string AddressCity
         {
-            get => AddressCity;
+            get => addressCity;
             set
             {
-                if (AddressCity != value)
+                if (addressCity != value)
                 {
-                    AddressCity = value;
+                    addressCity = value;
                     OnPropertyChanged(nameof(AddressCity));
                     OnPropertyChanged(nameof(Display));
                 }
@@ -159,12 +159,12 @@ namespace _06_05_2
 
         public string AddressStreet
         {
-            get => AddressStreet;
+            get => addressStreet;
             set
             {
-                if (AddressStreet != value)
+                if (addressStreet != value)
                 {
-                    AddressStreet = value;
+                    addressStreet = value;
                     OnPropertyChanged(nameof(AddressStreet));
                     OnPropertyChanged(nameof(Display));
                 }

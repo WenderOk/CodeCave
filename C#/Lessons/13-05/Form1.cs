@@ -85,11 +85,6 @@ namespace _06_05_2
             AddressStrInput.DataBindings.Add(new Binding("Text", bs, "AddressStreet", false, DataSourceUpdateMode.OnPropertyChanged));
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ExitButton_MouseClick(object sender, MouseEventArgs e)
         {
             Close();
@@ -154,6 +149,11 @@ namespace _06_05_2
         {
             int index = listBox_cards.SelectedIndex;
             bs.RemoveAt(index);
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            ClearFields();
         }
     }
 }

@@ -88,7 +88,6 @@
             this.label1.Size = new System.Drawing.Size(82, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Organization";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -307,6 +306,7 @@
             this.ClearButton.TabIndex = 4;
             this.ClearButton.Text = "CLEAR";
             this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // ExitButton
             // 
