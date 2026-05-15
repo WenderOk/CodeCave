@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 
-
-
 class Person
 {
 class Person::Account
@@ -30,7 +28,6 @@ public:
     }
 
 };
-
 
 
 int main()
