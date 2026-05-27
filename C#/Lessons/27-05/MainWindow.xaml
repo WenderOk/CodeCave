@@ -1,0 +1,63 @@
+﻿<Window x:Class="_27_05.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_27_05"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0"
+               Content="Name"
+               FontSize="32"/>
+        <TextBox Grid.Row="0" Grid.Column="1"
+               Name="textBox_name"/>
+        <Label Grid.Row="1" Grid.Column="0"
+               Content="Mail"
+               FontSize="32"/>
+        <TextBox Grid.Row="1" Grid.Column="1"
+               Name="textBox_mail"/>
+        <Label Grid.Row="2" Grid.Column="0"
+               Content="Password"
+               FontSize="32"/>
+        <PasswordBox Grid.Row="2" Grid.Column="1"
+               PasswordChar="*"
+               Name="text_password"/>
+        <Button Grid.Row="3" Grid.Column="0"
+               Content="Sign up"
+               FontSize="32"
+               Name="button_registration"
+               Click="button_registration_Click"/>
+        <TextBox Grid.Row="3" Grid.Column="1"
+               Name="textBox_information"/>
+        <Button Grid.Row="4" Grid.Column="0"
+               Content="Reset"
+               FontSize="32"
+               Name="button_clear"
+               Click="button_clear_Click"/>
+        <Button Grid.Row="5" Grid.Column="0"
+               Content="Show registered"
+               FontSize="32"
+               Name="button_view_all"
+               Click="button_view_all_Click"/>
+        <Button Grid.Row="5" Grid.Column="1"
+               Content="Exit"
+               FontSize="32"
+               Name="button_exit"
+               Click="button_exit_Click"/>
+        
+    </Grid>
+</Window>
