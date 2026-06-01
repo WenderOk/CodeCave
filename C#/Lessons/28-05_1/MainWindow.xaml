@@ -16,7 +16,7 @@
     </Window.Resources>
     <StackPanel Orientation="Vertical">
         <TextBox Name="textBox_pwd" FontSize="24" Height="40"/>
-        <Slider Name="slider_len" Value="0" Minimum="4" Maximum="20" SelectionStart="0" Height="30" 
+        <Slider Name="slider_len" Value="0" Minimum="3" Maximum="20" SelectionStart="0" Height="30" 
                 IsSelectionRangeEnabled="True"/>
 
         <StackPanel Orientation="Horizontal">
