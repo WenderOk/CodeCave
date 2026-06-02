@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace _01_06
 {
@@ -53,14 +42,28 @@ namespace _01_06
 
         private void Button_remove_Click(object sender, RoutedEventArgs e)
         {
-            if(ContactsDataGrid.SelectedItem is Contact selectedcontact)
+            if (ContactsDataGrid.SelectedItem is Contact selectedcontact)
                 contactManager.RemoveContact(selectedcontact);
+            else
+                MessageBox.Show("Элемент для удаления не выбран");
             
         }
 
         private void Button_edit_Click(object sender, RoutedEventArgs e)
         {
+            if(ContactsDataGrid.SelectedItem is Contact selectedcontact)
+            {
+                int index = ContactsDataGrid.SelectedIndex;
+                Contact new_contact = new Contact()
+                {
+                    Name = TextBox_name.Text,
+                    PhoneNumber = TextBox_phone.Text,
+                    Email = TextBox_email.Text
+                };
 
+                if (!contactManager.EditContact(index, new_contact))
+                    MessageBox.Show("Заполнены не все поля");
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

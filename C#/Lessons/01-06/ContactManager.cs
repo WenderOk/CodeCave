@@ -51,7 +51,7 @@ namespace _01_06
         }
 
         public void RemoveContact(Contact contact)
-        {  contacts.Remove(contact); }
+        {  Contacts.Remove(contact); }
 
         public void SaveToFile(string path)
         {

@@ -1,0 +1,74 @@
+﻿<Window x:Class="_02_06.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_02_06"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel Margin="10">
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Введите сумму: " FontSize="20" Margin="5" />
+            <TextBox Name="textBoxAmount" FontSize="20" Margin="5" MinWidth="200" MaxWidth="350"/>
+        </StackPanel>
+        
+        <StackPanel>
+            <Label Content="Вид трат"/>
+            <RadioButton 
+                Content="Еда" 
+                Name="radioButtonFood" 
+                GroupName="ExtenceCategory" 
+                IsChecked="True"/>
+            <RadioButton 
+                Content="Транстпорт"
+                Name="radioButtonTransport"
+                GroupName="ExtenceCategory"/>
+            <RadioButton 
+                Content="Игры"
+                Name="radioButtonGames" 
+                GroupName="ExtenceCategory"/>
+        </StackPanel>
+
+        <StackPanel>
+            <Label Content="Тип оплаты"/>
+            <RadioButton 
+                Content="Наличные" 
+                Name="radioButtonCash" 
+                GroupName="PaymentMethod" 
+                IsChecked="True"/>
+            <RadioButton 
+                Content="Карта"
+                Name="radioButtonCard"
+                GroupName="PaymentMethod"/>
+        </StackPanel>
+
+        <GroupBox Header="Скидка">
+            <StackPanel>
+                <CheckBox Content="10%" Name="checkBox10"/>
+                <CheckBox Content="15%" Name="checkBox15"/>
+                <CheckBox Content="20%" Name="checkBox20"/>
+            </StackPanel>
+        </GroupBox>
+
+        <Button
+            Content="Добавить трату"
+            Name="ButtonAdd"
+            MinHeight="45"
+            Margin="10"
+            FontSize="20"
+            Click="ButtonAdd_Click"
+            Style="{StaticResource ButtonStyle2}"/>
+
+        <Expander Header="Траты" Margin="10" IsExpanded="False">
+            <StackPanel>
+                <Label Name="lbl"/>
+                <Label Margin="10" Content="" Name="LabelTotal"/>
+            </StackPanel>
+        </Expander>
+
+        <Button Name="ButtonViewList"
+                Content="Просмотреть список"
+                Click="ButtonViewList_Click"
+                Style="{StaticResource ButtonStyle2}"/>
+    </StackPanel>
+</Window>
