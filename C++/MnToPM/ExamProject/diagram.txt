@@ -1,0 +1,53 @@
+@startuml
+
+class HttpRequest {
+    - method : string
+    - url : string
+    - headers : map<string, string>
+    - body : string
+    - HttpRequest()
+    + print() : void
+}
+
+interface HttpBuilder {
+    + {abstract} ~HttpBuilder()
+    + {abstract} reset() : void
+    + {abstract} buildMethod(method : string) : void
+    + {abstract} buildUrl(url : string) : void
+    + {abstract} buildHeader(key : string, value : string) : void
+    + {abstract} buildBody(body : string) : void
+    + {abstract} getResult() : unique_ptr<HttpRequest>
+}
+
+class HttpConcreteBuilder {
+    - request : unique_ptr<HttpRequest>
+    + HttpConcreteBuilder()
+    + reset() : void override
+    + buildMethod(method : string) : void override
+    + buildUrl(url : string) : void override
+    + buildHeader(key : string, value : string) : void override
+    + buildBody(body : string) : void override
+    + getResult() : unique_ptr<HttpRequest> override
+}
+
+class HttpDirector {
+    - builder : HttpBuilder*
+    + setBuilder(b : HttpBuilder*) : void
+    + makeJsonGetRequest(url : string, token : string) : void
+    + makeJsonPostRequest(url : string, token : string, jsonBody : string) : void
+}
+
+
+' Связи и отношения
+HttpBuilder <|-- HttpConcreteBuilder : "реализует"
+HttpDirector o--> HttpBuilder : "агрегирует (использует)"
+HttpConcreteBuilder *-- HttpRequest : "Владеет"
+
+
+
+note right of HttpRequest
+  Конструктор приватный.
+  HttpConcreteBuilder является friend-классом.
+end note
+
+@enduml
