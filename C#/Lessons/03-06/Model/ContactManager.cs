@@ -62,6 +62,9 @@ namespace _03_06.Model
 
         public void LoadContacts(string path)
         {
+            if (!File.Exists(path))
+                return;
+
             XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Contact>));
             using (FileStream fs = new FileStream(path, FileMode.Open))
             { contacts = (ObservableCollection<Contact>)serializer.Deserialize(fs); }

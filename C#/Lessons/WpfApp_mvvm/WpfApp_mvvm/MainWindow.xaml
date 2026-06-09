@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfApp_mvvm.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_mvvm.ViewModel"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=local:ContactViewModel, IsDesignTimeCreatable=True}"
+        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
+    <DockPanel>
+        <Label DockPanel.Dock="Top" Content="Приложение для управления контактами"
+                HorizontalAlignment="Center" FontSize="20"/>
+        <StackPanel DockPanel.Dock="Bottom">
+            <Button Content="Add" Command="{Binding OpenAddContactCommand}"/>
+            <Button Content="Edit" Command="{Binding OpenEditContactCommand}"/>
+            <Button Content="Remove" Command="{Binding RemoveContactCommand}"/>
+        </StackPanel>
+
+        <StackPanel>
+            <DataGrid ItemsSource="{Binding Contacts}" SelectedIndex="{Binding SelectedIndex}"/>
+        </StackPanel>
+        
+    </DockPanel>
+</Window>

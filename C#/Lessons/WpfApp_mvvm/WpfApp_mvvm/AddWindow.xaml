@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfApp_mvvm.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_mvvm"
+        mc:Ignorable="d"
+        Title="Форма для добавления контакта" Height="250" Width="400" Name="AddContact">
+    <StackPanel Margin="5">
+        <Label Content="Имя:"/>
+        <TextBox Text="{Binding TextBoxName}"/>
+        <Label Content="Почта:"/>
+        <TextBox Text="{Binding TextBoxEmail}"/>
+        <Label Content="Номер:"/>
+        <TextBox Text="{Binding TextBoxPhoneNumber}"/>
+        <Button Content="Добавить" Margin="0,15" Command="{Binding AddContactCommand}" CommandParameter="{Binding ElementName=AddContact}"/>
+    </StackPanel>
+</Window>

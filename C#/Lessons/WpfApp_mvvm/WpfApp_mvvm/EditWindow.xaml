@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp_mvvm.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_mvvm.ViewModel"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=local:ContactViewModel, IsDesignTimeCreatable=True}"
+        Title="EditWindow" Height="450" Width="800" Name="EditContact">
+    <StackPanel Margin="10" >
+        <Label Content="Имя" />
+        <TextBox Text="{Binding TextBoxName}"/>
+        <Label Content="Почта"/>
+        <TextBox Text="{Binding TextBoxEmail}"/>
+        <Label Content="Телефон"/>
+        <TextBox Text="{Binding TextBoxPhoneNumber}"/>
+        <Button Content="Изменить" Margin="0,20" FontSize="20" 
+            Command="{Binding EditContactCommand}"
+            CommandParameter="{Binding ElementName=EditContact}" />
+    </StackPanel>
+</Window>

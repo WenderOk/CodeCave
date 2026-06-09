@@ -18,11 +18,11 @@ namespace _03_06.ViewModel
             TextBoxEmail = email;
             TextBoxPhone = phone;
         }
-        public ObservableCollection<Contact> Contacts { get { return contactManager.Contacts; } }
         public ContactViewModel()
         {
-            
+            contactManager.LoadContacts("Contacts.xml");
         }
+        public ObservableCollection<Contact> Contacts { get { return contactManager.Contacts; } }
         private void ShowAddContactWindow()
         {
             AddWindow addWindow = new AddWindow(this);
