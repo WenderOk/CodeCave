@@ -58,12 +58,19 @@
     <Compile Include="CreateQuizWindow.xaml.cs">
       <DependentUpon>CreateQuizWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QuizInfo.cs" />
+    <Compile Include="Model\QuizInfo.cs" />
+    <Compile Include="QuizEditWindow.xaml.cs">
+      <DependentUpon>QuizEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QuizPassingWindow.xaml.cs">
+      <DependentUpon>QuizPassingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QuizSelectionWindow.xaml.cs">
       <DependentUpon>QuizSelectionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\CreateQuizViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\QuizPassingViewModel.cs" />
     <Compile Include="ViewModel\SelectQuizViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Page Include="CreateQuizWindow.xaml">
@@ -82,6 +89,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="QuizEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuizPassingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="QuizSelectionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

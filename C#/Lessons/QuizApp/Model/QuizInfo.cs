@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuizApp
 {
-    internal class QuizInfo
+    public class QuizInfo
     {
         public string Name { get; set; }
         public string FilePath { get; set; }

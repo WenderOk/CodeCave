@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using QuizApp.Model;
 
 namespace QuizApp.ViewModel
@@ -28,11 +25,12 @@ namespace QuizApp.ViewModel
 
         public RelayCommand StartQuizCommand { get; }
 
-        public QuizViewModel()
+        public SelectQuizViewModel()
         {
             StartQuizCommand = new RelayCommand(_ => StartQuiz(), _ => SelectedQuiz != null);
             LoadQuizList();
         }
+
 
         private void LoadQuizList()
         {
@@ -52,6 +50,15 @@ namespace QuizApp.ViewModel
                         FilePath = file
                     });
             }
+        }
+
+        public void StartQuiz()
+        {
+            if (SelectedQuiz == null)
+                return;
+            Quiz quiz = manager.LoadQuiz(SelectedQuiz.FilePath);
+            QuizPassingWindow window = new QuizPassingWindow(quiz);
+            window.Show();
         }
     }
 }

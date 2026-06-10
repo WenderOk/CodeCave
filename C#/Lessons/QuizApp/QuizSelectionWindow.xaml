@@ -3,10 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:QuizApp"
+        xmlns:local="clr-namespace:QuizApp.ViewModel"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=local:SelectQuizViewModel, IsDesignTimeCreatable=True}"
         Title="QuizSelectionWindow" Height="450" Width="800">
-    <StackPanel>
-        <ListBox ItemsSource="{Binding}"
+    <StackPanel Orientation="Vertical">
+        <ListBox ItemsSource="{Binding AvailableQuizzes}"
+                 SelectedItem="{Binding SelectedQuiz}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Начать викторину" Command="{Binding StartQuizCommand}"/>
+
     </StackPanel>
 </Window>

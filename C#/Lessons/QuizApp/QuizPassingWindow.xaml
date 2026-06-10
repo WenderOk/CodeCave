@@ -1,0 +1,30 @@
+﻿<Window x:Class="QuizApp.QuizPassingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizApp.ViewModel"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=local:QuizPassingViewModel, IsDesignTimeCreatable=True}"
+        Title="Окно прохождения викторины" Height="450" Width="800">
+    <StackPanel>
+        <StackPanel Orientation="Vertical">
+            <TextBox Text="{Binding CurrentQuiz.Name}"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBox Text="{Binding CurrrrentQuestion.Id}"/>
+                <TextBlock Text="{Binding CurrrrentQuestion.Text}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <ItemsControl ItemsSource="{Binding CurrrrentQuestion.Answers}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Content="{Binding Text}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <Button Content="Следующий вопрос"
+                Command="{Binding NextQuestionCommand}"/>
+    </StackPanel>
+</Window>

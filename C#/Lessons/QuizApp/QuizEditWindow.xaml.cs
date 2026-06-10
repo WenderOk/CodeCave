@@ -11,20 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using QuizApp.ViewModel;
 
 namespace QuizApp
 {
     /// <summary>
-    /// Логика взаимодействия для QuizSelectionWindow.xaml
+    /// Логика взаимодействия для QuizEditWindow.xaml
     /// </summary>
-    public partial class QuizSelectionWindow : Window
+    public partial class QuizEditWindow : Window
     {
-        SelectQuizViewModel viewModel {  get; } = new SelectQuizViewModel();
-        public QuizSelectionWindow()
+        public QuizEditWindow()
         {
             InitializeComponent();
-            DataContext = viewModel;
         }
     }
 }

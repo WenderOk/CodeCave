@@ -11,9 +11,10 @@ namespace QuizApp.Model
     {
         public string Name { get; set; }
         public ObservableCollection<Question> Questions { get; set; }
+            = new ObservableCollection<Question>();
 
         public Quiz() 
-        { Questions = new ObservableCollection<Question>(); }
+        { }
 
     }
 
