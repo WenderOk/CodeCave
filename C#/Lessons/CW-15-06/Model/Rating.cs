@@ -21,7 +21,7 @@ namespace CW_15_06.Model
         public ObservableCollection<Rating> Init()
         {
             ObservableCollection<Rating> ratings = new ObservableCollection<Rating>();
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Rating r = new Rating();
                 r.Id = i;
