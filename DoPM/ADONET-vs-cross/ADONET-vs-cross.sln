@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADONET-vs-cross", "ADONET-vs-cross.csproj", "{652990A4-5E30-4FCB-86C6-3BFFD4D3D7AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{652990A4-5E30-4FCB-86C6-3BFFD4D3D7AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{652990A4-5E30-4FCB-86C6-3BFFD4D3D7AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{652990A4-5E30-4FCB-86C6-3BFFD4D3D7AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{652990A4-5E30-4FCB-86C6-3BFFD4D3D7AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9DAE7C8-AFC8-4511-9ECE-F7E760C7C6B6}
+	EndGlobalSection
+EndGlobal
