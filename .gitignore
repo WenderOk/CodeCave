@@ -11,3 +11,4 @@ Python/NumericalMethods/Homework/test.py
 *\bin
 *.cache
 *build
+*\packages
