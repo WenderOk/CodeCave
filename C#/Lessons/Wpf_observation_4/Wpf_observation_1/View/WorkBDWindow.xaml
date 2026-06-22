@@ -1,0 +1,51 @@
+﻿<Window x:Class="Wpf_observation_1.View.WorkBDWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_observation_1.View"
+        xmlns:vm="clr-namespace:Wpf_observation_1.ViewModel"
+        mc:Ignorable="d"
+        Title="WorkBDWindow" Height="450" Width="1000">
+    <Window.DataContext>
+        <vm:WorkBD_VM/>
+    </Window.DataContext>
+    <DockPanel>
+        <Label DockPanel.Dock="Top" Content="Просмотр и редактирование данных" HorizontalAlignment="Center" FontSize="15"/>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical">
+            <Button Content="Удалить запись" Margin="5" Background="DodgerBlue" Width="650" Command="{Binding RemoveCommand}"/>
+            <Button Content="Вернуться в основное меню" Margin="5" Background="DodgerBlue" Width="650"
+                    Click="Button_Click" Command="{Binding ReturnToMainCommand}"/>
+        </StackPanel>
+        <Button DockPanel.Dock="Left" Content="❮" Height="200" Width="20" Margin="10" Background="DodgerBlue"/>
+        <Button DockPanel.Dock="Right" Content="❯" Height="200" Width="20" Margin="10" Background="DodgerBlue"/>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Объект наблюдения" />
+                <ComboBox Width="200" ItemsSource="{Binding Objects}"
+                          DisplayMemberPath="Name"
+                          SelectedItem="{Binding SelectedObject, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Content=" Классификация" Margin="30,0,0,0"/>
+                <ComboBox Width="200" ItemsSource="{Binding Classifications}"
+                          DisplayMemberPath="ClassificationName"
+                          SelectedItem="{Binding SelectedClassification}"/>
+                <Label Content="Рейтинг" Margin="30,0,0,0"/>
+                <ComboBox Width="180" ItemsSource="{Binding Ratings}"
+                          DisplayMemberPath="RatingValue"
+                          SelectedItem="{Binding SelectedRating}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content=" Дата наблюдения    "/>
+                <TextBox Width="200"/>
+                <Button Content="Сбросить фильтры" Command="{Binding ClearFiltersCommand}"/>
+            </StackPanel>
+            <StackPanel Height="250" Margin="10">
+                <ListView ItemsSource="{Binding ObservationsView}"
+                          DisplayMemberPath="Display"
+                          SelectedItem="{Binding SelectedObservation}"/>
+
+            </StackPanel>
+        </StackPanel>
+        
+    </DockPanel>
+</Window>

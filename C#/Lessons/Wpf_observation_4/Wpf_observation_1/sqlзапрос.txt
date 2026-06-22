@@ -1,0 +1,10 @@
+SELECT Observation.id,
+name,
+Observation.dateDay || ' ' || Observation.dateMonth || ' ' || Observation.dateYear,
+Classification.classificationName,
+Observation.text,
+Raiting.raitingValue
+FROM Observation
+JOIN ObjectOfObservation ON Observation.objectId=ObjectOfObservation.id
+Join Classification On Observation.classificationId=Classification.id
+JOIN Raiting ON Observation.raitingId=Raiting.id

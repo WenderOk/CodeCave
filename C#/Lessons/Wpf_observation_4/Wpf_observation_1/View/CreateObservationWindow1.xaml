@@ -1,0 +1,91 @@
+﻿<Window x:Class="Wpf_observation_1.View.CreateObservationWindow1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_observation_1.View"
+        xmlns:vm="clr-namespace:Wpf_observation_1.ViewModel"
+        mc:Ignorable="d"
+        Title="CreateObservationWindow1" Height="650" Width="1100">
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Background" Value="LightBlue"/>
+        </Style>
+    </Window.Resources>
+    <Window.DataContext>
+        <vm:CreateVM/>
+    </Window.DataContext>
+    
+    <DockPanel>
+        <Label Content="Создание записей наблюдения" DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="20" Height="50"/>
+        <StackPanel DockPanel.Dock="Bottom">
+            <Button Content="Сохранить запись и очистить поля" Margin="15"
+                    Command="{Binding SaveCommand}"
+                    Style="{StaticResource ButtonStyle}"/>
+            <Button Content="Вернуться в основное меню" Margin="15"
+                    Command="{Binding ReturnToMainCommand}"
+                    Click="Button_Click"
+                    Style="{StaticResource ButtonStyle}"/>
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="30*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="12*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="12*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="12*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Id" FontSize="20" />
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Id_number}"/>
+            
+            <Label Grid.Row="1" Grid.Column="0" Content="Наименование объекта" FontSize="10"/>
+            <ComboBox Grid.Row="1" Grid.Column="1" Text="combobox_objects" Margin="0,15,15,15"
+                      ItemsSource="{Binding Objects}"
+                      DisplayMemberPath="Name"
+                      SelectedItem="{Binding SelectedObject}"/>
+            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical">
+                <TextBox Margin="5" FontSize="10" ToolTip="Поле для ввода нового объекта наблюдения"
+                         Text="{Binding NewObject}"/>
+                <Button Content="Добавить новый объект" Command="{Binding AddObjectCommand}"
+                        Style="{StaticResource ButtonStyle}"/>
+            </StackPanel>
+            
+            
+            <Label Grid.Row="2" Grid.Column="0" Content="Date" FontSize="10"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding d}"/>
+            
+            <Label Grid.Row="3" Grid.Column="0" Content="Классификация наблюдения" FontSize="10"/>
+            <ComboBox Grid.Row="3" Grid.Column="1" Text="" Margin="0,15,15,15"
+                 IsEditable="True" IsTextSearchEnabled="True"
+                      ItemsSource="{Binding Classifications}"
+                      DisplayMemberPath="ClassificationName"
+                      SelectedItem="{Binding SelectedClassification}"/>
+            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Vertical">
+                <TextBox Margin="5" FontSize="10" ToolTip="Поле для ввода новой классификации"
+                         Text="{Binding NewClassification}"/>
+                <Button Content="Добавить новую классификацию" Command="{Binding AddClassificationCommand}"
+                        Style="{StaticResource ButtonStyle}"/>
+            </StackPanel>
+            
+            
+            <Label Grid.Row="4" Grid.Column="0" Content="Text"/>
+            <TextBox Grid.Row="4" Grid.Column="1" ToolTip="Поле для ввода информации"
+                       Text="{Binding NewText}"/>
+            
+            <Label Grid.Row="5" Grid.Column="0" Content="Rating"/>
+            <ComboBox Grid.Row="5" Grid.Column="1" Text="" Margin="0,15,15,15"
+                      ItemsSource="{Binding Rating}"
+                      DisplayMemberPath="RatingValue"
+                      SelectedItem="{Binding SelectedRating}"/>
+        </Grid>
+    </DockPanel>
+</Window>

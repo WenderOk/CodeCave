@@ -1,24 +1,66 @@
 ﻿using MySql.Data.MySqlClient;
+using Microsoft.Data.Sqlite;
+using System;
+using System.IO;
+using System.Text.Json;
+using Microsoft.Extensions.Configuration;
 
-string connectionString = "server=localhost;port=3306;database=geodb;user=s;password=1234567;";
+Console.WriteLine("Choose DB to connect:\n"
+                    + " 1. MySQL\n"
+                    + " 2. SQLite");
+int choice = int.Parse(Console.ReadLine());
 
-using (MySqlConnection connection = new MySqlConnection(connectionString))
+string connOpt = (choice == 1) ? "MySqlConnection" : "SqliteConnection";
+
+var builder = new ConfigurationBuilder()
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+IConfiguration config = builder.Build();
+
+switch(choice)
 {
-    connection.Open();
-
-    string sqlQuery = "SELECT name, surname FROM users";
-
-    using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
+    case 1:
     {
-        using (MySqlDataReader reader = command.ExecuteReader())
-        {
-            while (reader.Read())
-            {
-                string name = reader.GetString("name");
-                string surname = reader.GetString("surname");
+        string connectionString = config.GetConnectionString(connOpt);
 
-                Console.WriteLine($"Name: {name}, Surname: {surname}");
-            }
-        }
+        using MySqlConnection connection = new MySqlConnection(connectionString);
+        connection.Open();
+
+        string sqlQuery = "SELECT name, surname FROM users";
+
+        using MySqlCommand command = new MySqlCommand(sqlQuery, connection);
+
+        Console.WriteLine(connection.ServerVersion);
+        break;
     }
+        
+    case 2:
+    {
+        string connectionString = config.GetConnectionString(connOpt);
+
+        using SqliteConnection connection = new SqliteConnection(connectionString);
+        connection.Open();
+
+        string sqlQuery = @"insert into students values(1, 'Test', 'Testov', 'some@main.ru');";
+
+        using SqliteCommand command = new SqliteCommand(sqlQuery, connection);
+
+        command.ExecuteNonQuery();
+
+        Console.WriteLine(connection.ServerVersion);
+        break;
+    }
+    default:
+        Console.WriteLine("Wrong option");
+        break;
+    
+}
+
+
+
+
+public class AppConfig
+{
+    public string? ConnectionString { get; set; }
 }
