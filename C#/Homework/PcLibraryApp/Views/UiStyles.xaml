@@ -1,0 +1,85 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ЦВЕТОВАЯ ПАЛИТРА (Кисти) -->
+    <SolidColorBrush x:Key="MenuBackgroundBrush" Color="#252526"/>
+    <SolidColorBrush x:Key="ContentBackgroundBrush" Color="#F9F9F9"/>
+    <SolidColorBrush x:Key="AccentButtonBrush" Color="#FF118008"/>
+    <SolidColorBrush x:Key="MenuButtonActiveBrush" Color="#3E3E42"/>
+    <SolidColorBrush x:Key="TextDarkBrush" Color="#333333"/>
+
+    <!-- СТИЛЬ: Текст заголовка в меню -->
+    <Style x:Key="MenuHeaderTextStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Margin" Value="10,10,10,30"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+    <!-- СТИЛЬ: Кнопки бокового меню навигации -->
+    <Style x:Key="MenuButtonStyle" TargetType="Button">
+        <Setter Property="Margin" Value="0,5"/>
+        <Setter Property="Padding" Value="12,10"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="13"/>
+        <!-- Триггер: меняет цвет кнопки при наведении мыши -->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#2D2D30"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- СТИЛЬ: Главная акцентная кнопка (например, "Добавить в сборку") -->
+    <Style x:Key="AccentButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource AccentButtonBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Padding" Value="20,10"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="#CCCCCC"/>
+                <Setter Property="Foreground" Value="#888888"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DangerButtonStyle" TargetType="Button" BasedOn="{StaticResource MenuButtonStyle}">
+        <Setter Property="Background" Value="#A12626"/>
+        <Setter Property="Padding" Value="15,8"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#C23B3B"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="#CCCCCC"/>
+                <Setter Property="Foreground" Value="#888888"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- СТИЛЬ: Поля ввода (TextBox) -->
+    <Style x:Key="ModernTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Padding" Value="6,4"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="BorderBrush" Value="#CCCCCC"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <!-- СТИЛЬ: Таблица DataGrid -->
+    <Style x:Key="ModernDataGridStyle" TargetType="DataGrid">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="#E0E0E0"/>
+        <Setter Property="RowHeight" Value="28"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="#DCDCDC"/>
+    </Style>
+
+</ResourceDictionary>

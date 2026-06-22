@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="PcLibraryApp.Views.ConstructorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PcLibraryApp.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Padding="20">
+    <Grid Background="{StaticResource ContentBackgroundBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <!-- Левая часть: Выбор деталей -->
+            <ColumnDefinition Width="1*"/>
+            <!-- Правая часть: Статистика -->
+        </Grid.ColumnDefinitions>
+
+        <!-- ЛЕВАЯ КОЛОНКА: Выпадающие списки -->
+        <Border Grid.Column="0" Background="White" Padding="20" CornerRadius="4" Margin="0,0,10,0">
+            <StackPanel>
+                <TextBlock Text="{Binding FormTitle}" FontSize="18" FontWeight="Bold" Margin="0,0,0,20" Foreground="{StaticResource TextDarkBrush}"/>
+
+                <!-- Название сборки -->
+                <TextBlock Text="Название сборки:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                <TextBox Text="{Binding BuildName, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ModernTextBoxStyle}" Margin="0,0,0,15"/>
+
+                <!-- Процессор -->
+                <TextBlock Text="Процессор (CPU):" FontWeight="SemiBold" Margin="0,10,0,5"/>
+                <!-- DisplayMemberPath указывает, какое свойство класса Component отображать в списке -->
+                <ComboBox ItemsSource="{Binding AvailableCpus}" SelectedItem="{Binding SelectedCpu}" DisplayMemberPath="FullName" Padding="6,4"/>
+
+                <!-- Видеокарта -->
+                <TextBlock Text="Видеокарта (GPU):" FontWeight="SemiBold" Margin="0,10,0,5"/>
+                <ComboBox ItemsSource="{Binding AvailableGpus}" SelectedItem="{Binding SelectedGpu}" DisplayMemberPath="FullName" Padding="6,4"/>
+
+                <!-- Оперативная память -->
+                <TextBlock Text="Оперативная память (RAM):" FontWeight="SemiBold" Margin="0,10,0,5"/>
+                <ComboBox ItemsSource="{Binding AvailableRams}" SelectedItem="{Binding SelectedRam}" DisplayMemberPath="FullName" Padding="6,4"/>
+
+                <!-- Материнская плата -->
+                <TextBlock Text="Материнская плата:" FontWeight="SemiBold" Margin="0,10,0,5"/>
+                <ComboBox ItemsSource="{Binding AvailableMotherboards}" SelectedItem="{Binding SelectedMotherboard}" DisplayMemberPath="FullName" Padding="6,4"/>
+            </StackPanel>
+        </Border>
+
+        <!-- ПРАВАЯ КОЛОНКА: Текущие характеристики -->
+        <Border Grid.Column="1" Background="#2E2E2E" Padding="20" CornerRadius="4" Margin="10,0,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Блок параметров -->
+                <StackPanel Grid.Row="0">
+                    <TextBlock Text="Параметры сборки" Foreground="White" FontSize="16" FontWeight="Bold" Margin="0,0,0,25"/>
+
+                    <!-- Текущая Стоимость -->
+                    <TextBlock Text="Текущая стоимость:" Foreground="#AAAAAA" FontSize="12"/>
+                    <TextBlock Text="{Binding TotalPrice, StringFormat={}{0:N0} руб.}" Foreground="#66BB6A" FontSize="24" FontWeight="Bold" Margin="0,5,0,20"/>
+
+                    <!-- Текущее энергопотребление -->
+                    <TextBlock Text="Общее энергопотребление:" Foreground="#AAAAAA" FontSize="12"/>
+                    <TextBlock Text="{Binding TotalTdp}" Foreground="#FFA726" FontSize="14" FontWeight="SemiBold" Margin="0,5,0,20"/>
+                </StackPanel>
+
+                <!-- Кнопка сохранения сборки -->
+                <Button Grid.Row="1" 
+                        Content="Сохранить сборку" 
+                        Command="{Binding SaveBuildCommand}"
+                        Style="{StaticResource AccentButtonStyle}" 
+                        HorizontalAlignment="Stretch" 
+                        Padding="10,12"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
