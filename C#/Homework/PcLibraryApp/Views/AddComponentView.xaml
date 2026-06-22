@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="PcLibraryApp.Views.AddComponentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PcLibraryApp.Views" 
+             xmlns:viewmodels="clr-namespace:PcLibraryApp.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:AddComponentViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="500">
+            
+
+    <Grid Background="{StaticResource ContentBackgroundBrush}">
+        <StackPanel MaxWidth="400" HorizontalAlignment="Left"  Margin="30">
+
+            <TextBlock Text="{Binding FormTitle}" FontSize="18" FontWeight="Bold" Margin="0,0,0,20" Foreground="{StaticResource TextDarkBrush}"/>
+
+            <!-- Категория -->
+            <TextBlock Text="Категория:" Margin="0,10,0,5" FontWeight="SemiBold"/>
+            <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding Category}" Padding="6,4"/>
+
+            <!-- Производитель -->
+            <TextBlock Text="Производитель (например, ASUS, Intel):" Margin="0,10,0,5" FontWeight="SemiBold"/>
+            <TextBox Text="{Binding Manufacturer, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ModernTextBoxStyle}"/>
+
+            <!-- Модель -->
+            <TextBlock Text="Модель (например, RTX 4060):" Margin="0,10,0,5" FontWeight="SemiBold"/>
+            <TextBox Text="{Binding Model, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ModernTextBoxStyle}"/>
+
+            <!-- Цена -->
+            <TextBlock Text="Цена (руб.):" Margin="0,10,0,5" FontWeight="SemiBold"/>
+            <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N0}}" Style="{StaticResource ModernTextBoxStyle}"/>
+
+            <!-- Описание -->
+            <TextBlock Text="Описание / Примечание:" Margin="0,10,0,5" FontWeight="SemiBold"/>
+            <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ModernTextBoxStyle}" Height="60" TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Top"/>
+
+            <!-- Кнопка сохранения -->
+            <Button Content="Сохранить в базу данных" 
+                    Command="{Binding SaveCommand}" 
+                    Style="{StaticResource AccentButtonStyle}" 
+                    Margin="0,25,0,0" 
+                    HorizontalAlignment="Left"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

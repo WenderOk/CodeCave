@@ -1,0 +1,60 @@
+﻿<Window x:Class="PcLibraryApp.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels="clr-namespace:PcLibraryApp.ViewModels"
+        xmlns:views="clr-namespace:PcLibraryApp.Views"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+        Title="Библиотека комплектующих ПК" Height="600" Width="1100" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:CatalogViewModel}">
+            <views:CatalogView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:AddComponentViewModel}">
+            <views:AddComponentView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ConstructorViewModel}">
+            <views:ConstructorView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:BuildsViewModel}">
+            <views:BuildsView/>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ЛЕВОЕ МЕНЮ -->
+        <Border Grid.Column="0" Background="{StaticResource MenuBackgroundBrush}" Padding="10">
+            <StackPanel>
+                <TextBlock Text="PC LIBRARY" Style="{StaticResource MenuHeaderTextStyle}"/>
+
+                <Button Content="Каталог деталей" 
+                        Command="{Binding OpenCatalogCommand}" 
+                        Style="{StaticResource MenuButtonStyle}"
+                        Background="{StaticResource MenuButtonActiveBrush}"/>
+
+                <Button Content="Добавить деталь" 
+                        Command="{Binding OpenAddComponentCommand}" 
+                        Style="{StaticResource MenuButtonStyle}"/>
+
+                <Button Content="Конструктор" 
+                        Command="{Binding OpenConstructorCommand}" 
+                        Style="{StaticResource MenuButtonStyle}"/>
+
+                <Button Content="Мои сборки" 
+                        Command="{Binding OpenBuildsCommand}" 
+                        Style="{StaticResource MenuButtonStyle}"/>
+            </StackPanel>
+        </Border>
+
+        <!-- ОСНОВНАЯ ОБЛАСТЬ -->
+        <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}" />
+    </Grid>
+</Window>
