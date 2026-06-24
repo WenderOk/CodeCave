@@ -50,7 +50,8 @@
                         Command="{Binding EditBuildCommand}"
                         Style="{StaticResource MenuButtonStyle}"
                         Background="#555555"
-                        Margin="10"/>
+                        Margin="10"
+                        FontWeight="Bold"/>
             </StackPanel>
         </Grid>
 

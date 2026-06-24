@@ -54,7 +54,7 @@
             </DataGrid>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
-                <Button Content="Удалить деталь" 
+                <Button Content="Удалить" 
                         Command="{Binding DeleteComponentCommand}"
                         Style="{StaticResource DangerButtonStyle}"
                         Margin="0,0,10,0"/>
@@ -67,8 +67,8 @@
                         Padding="15,8"
                         FontWeight="Bold"/>
 
-                <Button Content="Добавить в сборку" 
-                        Command="{Binding AddToBuildCommand}"
+                <Button Content="Добавить" 
+                        Command="{Binding AddComponentCommand}"
                         Style="{StaticResource AccentButtonStyle}"/>
             </StackPanel>
         </Grid>

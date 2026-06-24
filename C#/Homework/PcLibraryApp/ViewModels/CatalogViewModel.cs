@@ -1,8 +1,6 @@
 ﻿using PcLibraryApp.Infrastructure;
-using PcLibraryApp.Models;
 using PcLibraryApp.ViewModels.Base;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -41,7 +39,7 @@ namespace PcLibraryApp.ViewModels
             set => SetProperty(ref _selectedComponent, value);
         }
 
-        public ICommand AddToBuildCommand { get; }
+        public ICommand AddComponentCommand { get; }
 
         public CatalogViewModel(MainViewModel mainViewModel)
         {
@@ -53,7 +51,7 @@ namespace PcLibraryApp.ViewModels
             ComponentsView = CollectionViewSource.GetDefaultView(_rawComponents);
             ComponentsView.Filter = FilterComponents;
 
-            AddToBuildCommand = new RelayCommand(p => AddComponentToBuild(), c => SelectedComponent != null);
+            AddComponentCommand = new RelayCommand(p => AddComponent());
             EditComponentCommand = new RelayCommand(p => EditComponent(), c => SelectedComponent != null);
             DeleteComponentCommand = new RelayCommand(p => DeleteComponent(), c => SelectedComponent != null);
         }
@@ -75,6 +73,11 @@ namespace PcLibraryApp.ViewModels
                     _rawComponents.Add(component);
                 }
             }
+        }
+
+        private void AddComponent()
+        {
+            _mainViewModel.CurrentViewModel = new AddComponentViewModel();
         }
 
         private void EditComponent()

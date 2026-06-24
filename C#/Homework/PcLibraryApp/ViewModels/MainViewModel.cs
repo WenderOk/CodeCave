@@ -21,7 +21,6 @@ namespace PcLibraryApp.ViewModels
 
         public ICommand OpenCatalogCommand { get; }
         public ICommand OpenConstructorCommand { get; }
-        public ICommand OpenAddComponentCommand { get; }
         public ICommand OpenBuildsCommand { get; }
 
         public MainViewModel()
@@ -30,7 +29,6 @@ namespace PcLibraryApp.ViewModels
 
             OpenCatalogCommand = new RelayCommand(p => CurrentViewModel = new CatalogViewModel(this));
             OpenConstructorCommand = new RelayCommand(p => CurrentViewModel = new ConstructorViewModel());
-            OpenAddComponentCommand = new RelayCommand(p => CurrentViewModel = new AddComponentViewModel());
             OpenBuildsCommand = new RelayCommand(p => CurrentViewModel = new BuildsViewModel(this));
         }
     }

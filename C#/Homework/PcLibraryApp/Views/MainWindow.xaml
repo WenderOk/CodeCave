@@ -37,11 +37,6 @@
 
                 <Button Content="Каталог деталей" 
                         Command="{Binding OpenCatalogCommand}" 
-                        Style="{StaticResource MenuButtonStyle}"
-                        Background="{StaticResource MenuButtonActiveBrush}"/>
-
-                <Button Content="Добавить деталь" 
-                        Command="{Binding OpenAddComponentCommand}" 
                         Style="{StaticResource MenuButtonStyle}"/>
 
                 <Button Content="Конструктор" 
