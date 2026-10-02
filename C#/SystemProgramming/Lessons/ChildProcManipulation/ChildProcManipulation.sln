@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChildProcManipulator", "ChildProcManipulator\ChildProcManipulator.csproj", "{438C69A3-9267-4B10-B3A2-90783E1FE72A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChildProc", "ChildProc\ChildProc.csproj", "{BADE89BA-A97E-42B7-BD0B-0229EDFD23A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{438C69A3-9267-4B10-B3A2-90783E1FE72A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{438C69A3-9267-4B10-B3A2-90783E1FE72A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{438C69A3-9267-4B10-B3A2-90783E1FE72A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{438C69A3-9267-4B10-B3A2-90783E1FE72A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BADE89BA-A97E-42B7-BD0B-0229EDFD23A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BADE89BA-A97E-42B7-BD0B-0229EDFD23A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BADE89BA-A97E-42B7-BD0B-0229EDFD23A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BADE89BA-A97E-42B7-BD0B-0229EDFD23A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5172915-594F-4360-B23F-62CC78B1114C}
+	EndGlobalSection
+EndGlobal
